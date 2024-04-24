@@ -129,13 +129,12 @@ class DatabaseHelper{
 
     public function login($email, $password){
         $pswHash=password_hash($password,PASSWORD_DEFAULT);
-        var_dump($pswHash);
         $query = "SELECT * FROM users WHERE (dataCancellazione is null) AND email = ? AND password = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$email, $pswHash);
         $stmt->execute();
-        //$result = $stmt->get_result();
-        //return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }    
 
 
