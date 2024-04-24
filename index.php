@@ -1,10 +1,16 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
-$sessionParams["titolo"] = "My Social Network";
-$sessionParams["nome"] = "home.php";
-$sessionParams["users"] = $dbh->getUsers();
-$sessionParams["posts"] = $dbh->getPosts();
+if(isUserLoggedIn()){
+    //Home
+    $templateParams["titolo"] = "Home";
+    $templateParams["nome"] = "home.php";
+    $templateParams["users"] = $dbh->getUsers();
+    $templateParams["posts"] = $dbh->getPosts();
+}else{
+    //Login
+    $templateParams["titolo"] = "Login";
+    $templateParams["nome"] = "login-form.php";
+}
 
 require 'template/layout.php';
