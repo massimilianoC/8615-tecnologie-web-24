@@ -10,16 +10,26 @@ function isUserLoggedIn(){
     {
         return false;
     }else {
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
-            // last request was more than 30 minutes ago
-            session_unset();     // unset $_SESSION variable for the run-time 
-            session_destroy();   // destroy session data in storage
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+            killSession();
+            $templateParams["errorelogin"] = "Sessione scaduta!";
             return false;
         }
         return true;
     }
 }
 
+function killSession(){
+     // last request was more than 30 minutes ago
+     session_unset();     // unset $_SESSION variable for the run-time 
+     session_destroy();   // destroy session data in storage
+}
+
+function logOut(){
+    killSession();
+    header('Location: index.php');
+}
+ 
 function registerLoggedUser($user){
     $_SESSION["idUSER"] = $user["idUSER"];
     $_SESSION["email"] = $user["email"];
