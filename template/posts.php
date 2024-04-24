@@ -3,7 +3,7 @@
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
                 <li>
                     <ul>
-                        <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg="./media/img/default-user-profile.jpg" ?>
+                        <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
                         <a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                         <span><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
@@ -13,6 +13,7 @@
                         <?php endif; ?>
                         <li class="post-element text"><?php echo $post["text"]; ?></li>
                         <li class="post-element function buttons"><button class="show-comment button toggle">Show comments</button></li>
+                        <li class="function add-comment"><button class="add-comment button">Add comment...</button></li>
                     </ul>
                     <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
                     <?php if(count($postComments)>0) : ?>
@@ -22,7 +23,7 @@
                                     <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
                                         <li class="post">
                                             <ul>
-                                            <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg="./media/img/default-user-profile.jpg" ?>
+                                            <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg=DEFAULT_IMG_PROFILE ?>
                                                 <li class="post-element header">
                                                     <a href="userProfile.php?id=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
                                                     <span><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></span></a>
@@ -34,7 +35,6 @@
                                             </ul>
                                         </li>       
                             <?php endforeach; ?>
-                            <li class="function add-comment"><button class="add-comment button">Add comment...</button></li>
                             </ul>
                         </section>
                     <?php endif; ?>     
