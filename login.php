@@ -14,7 +14,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $pepper = getPepper();
         $pwd = $_POST['password'];
         $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
-        $pwd_hashed = $user("password");
+        $pwd_hashed = $user["password"];
         if (password_verify($pwd_peppered, $pwd_hashed)) {
             //echo "Password matches.";
             registerLoggedUser($user);
