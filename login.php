@@ -2,13 +2,27 @@
 require_once 'bootstrap.php';
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
-    $login_result = $dbh->login($_POST["email"], $_POST["password"]);
+    $plainPassword = $_POST["password"];
+    $login_result = $dbh->getUserByEmail($_POST["email"]);
+
     if(count($login_result)==0){
         //Login fallito
         $templateParams["errorelogin"] = "Errore! Controllare email o password!";
     }
     else{
-        registerLoggedUser($login_result[0]);
+        $user = $login_result[0];
+        $pepper = getPepper();
+        $pwd = $_POST['password'];
+        $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
+        $pwd_hashed = $user("password");
+        if (password_verify($pwd_peppered, $pwd_hashed)) {
+            //echo "Password matches.";
+            registerLoggedUser($user);
+        }
+        else {
+            $templateParams["errorelogin"] = "Hai dimenticato la password?";
+        }
+       
     }
 }
 

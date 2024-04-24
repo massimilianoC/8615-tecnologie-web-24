@@ -29,6 +29,10 @@ function logOut(){
     killSession();
     header('Location: index.php');
 }
+
+function randomNumbers($digits = 3){
+    return rand(pow(10, $digits-1), pow(10, $digits)-1);
+}
  
 function registerLoggedUser($user){
     $_SESSION["idUSER"] = $user["idUSER"];
@@ -37,6 +41,10 @@ function registerLoggedUser($user){
     $_SESSION["nome"] = $user["nome"];
     $_SESSION["cognome"] = $user["cognome"];
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+}
+
+function getPepper(){
+    return "hpHBxsvDACsGFK4u4FTRl";
 }
 
 function uploadImage($path, $image){

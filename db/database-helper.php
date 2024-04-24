@@ -72,12 +72,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertUser($nome, $cognome, $email, $password, $nickname, $imageUrl ){
-        $pswHash=password_hash($password,PASSWORD_DEFAULT);
+    public function insertUser($nome, $cognome, $email, $password, $nickname="", $imageUrl="" ){
+        if($nickname == ""){
+            $nickname = $nome . randomNumbers();
+        }
         $query = "INSERT INTO users
                 (nome, cognome, email, password, nickname, imageUrl) VALUES( ?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssss',$nome, $cognome, $email, $pswHash, $nickname, $imageUrl );
+        $stmt->bind_param('ssssss',$nome, $cognome, $email, $password, $nickname, $imageUrl );
         $stmt->execute();
         
         return $stmt->insert_id;
@@ -127,22 +129,17 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    public function login($email, $password){
-        $pswHash=password_hash($password,PASSWORD_DEFAULT);
-        var_dump($pswHash);
-        $query = "SELECT * FROM users WHERE (dataCancellazione is null) AND email = ? AND password = ?";
+    public function getUserByEmail($email){
+        $query = "SELECT * FROM users WHERE (dataCancellazione is null) AND email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$email, $pswHash);
         $stmt->execute();
-        //$result = $stmt->get_result();
-        //return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }    
 
 
    /* 
-      
-   
-   
    public function getRandomPosts($n){
         $stmt = $this->db->prepare("SELECT idarticolo, titoloarticolo, imgarticolo FROM articolo ORDER BY RAND() LIMIT ?");
         $stmt->bind_param('i',$n);
