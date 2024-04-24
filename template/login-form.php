@@ -16,8 +16,8 @@
     </ul>
 </form>
 <hr />
-<form action="register.php" method="GET">
+<form action="register.php" method="POST">
     <li>
-        <input type="submit" name="register" value="Registrati" />
+        <input type="submit" name="submit" value="Registrati" />
     </li>
 </form>
