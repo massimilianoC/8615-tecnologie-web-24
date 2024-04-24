@@ -6,7 +6,7 @@ function isActive($pagename){
 }
 
 function isUserLoggedIn(){
-    if(empty($_SESSION['user']['isUSER']))
+    if(empty($_SESSION['user']))
     {
         return false;
     }else {
