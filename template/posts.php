@@ -4,14 +4,15 @@
             <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
                     <li>
                         <ul>
-                            <li>
-                                <span><img src="<?php echo UPLOAD_DIR.$postOwner["imageUrl"]; ?>" alt="" /></span>
+                            <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg="./media/img/default-user-profile.jpg" ?>
+                            <li class="post header">
+                                <span><img src="<?php echo $userImg; ?>" alt="" /></span>
                                 <span><a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></a></span>
                             </li>
                             <?php if($post["mediaUrl"]!="") : ?>
-                                <li><img class="post image" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" /></li>
+                                <li class="post media"><img class="post image" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" /></li>
                             <?php endif; ?>
-                            <li><a href="post.php?id=<?php echo $post["idPOST"]; ?>"><?php echo $post["text"]; ?></a></li>
+                            <li class="post text"><?php echo $post["text"]; ?></li>
                         </ul>
                         <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
                         <?php if(count($postComments)>0) : ?>
@@ -21,14 +22,15 @@
                                         <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
                                             <li>
                                                 <ul>
-                                                    <li>
-                                                        <span><img src="<?php echo UPLOAD_DIR.$commentOwner["imageUrl"]; ?>" alt="" /></span>
+                                                <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg="./media/img/default-user-profile.jpg" ?>
+                                                    <li class="post header">
+                                                        <span><img src="<?php echo $cmmImg; ?>" alt="" /></span>
                                                         <span><a href="userProfile.php?id=<?php echo $commentOwner["idUSER"]; ?>"><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></a></span>
                                                     </li>
                                                     <?php if($comment["mediaUrl"]!="") : ?>
-                                                        <li><img class="post image" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" /></li>
+                                                        <li class="post media"><img class="post image" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" /></li>
                                                     <?php endif; ?>
-                                                    <li><a href="post.php?id=<?php echo $comment["idPOST"]; ?>"><?php echo $comment["text"]; ?></a></li>
+                                                    <li class="post text"><?php echo $comment["text"]; ?></li>
                                                 </ul>
                                             </li>       
                                 <?php endforeach; ?>
