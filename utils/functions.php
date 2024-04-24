@@ -43,6 +43,23 @@ function registerLoggedUser($user){
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 }
 
+function checkPassword($pwd, $errors) {
+
+    if (strlen($pwd) < 8) {
+        $errors .= "Password too short!";
+    }
+
+    if (!preg_match("#[0-9]+#", $pwd)) {
+        $errors .= "Password must include at least one number!";
+    }
+
+    if (!preg_match("#[a-zA-Z]+#", $pwd)) {
+        $errors .= "Password must include at least one letter!";
+    }     
+
+    return $errors ;
+}
+
 function getPepper(){
     return "hpHBxsvDACsGFK4u4FTRl";
 }

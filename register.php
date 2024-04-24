@@ -10,15 +10,20 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
         $nome = $_POST['nome'];
         $cognome = $_POST['cognome'];
         if(count($dbh->getUserByEmail($email))==0){
-            $pepper = getPepper();
-            $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
-            $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
-            $dbh->insertUser($nome, $cognome,$email, $pwd_hashed);
-            $templateParams["titolo"] = "Login";
-            $templateParams["nome"] = "login-form.php";
+            $errors = checkPassword($pwd,"");
+            if($errors==""){
+                $pepper = getPepper();
+                $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
+                $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
+                $dbh->insertUser($nome, $cognome,$email, $pwd_hashed);
+                $templateParams["titolo"] = "Login";
+                $templateParams["nome"] = "login-form.php";
+            } else {
+                $templateParams["erroreRegistrazione"] = $errors;
+            }
          } else {
             $templateParams["erroreRegistrazione"] = "Email già registrata!";
          }
-    } 
-    require 'template/layout.php';
+} 
+require 'template/layout.php';
 
