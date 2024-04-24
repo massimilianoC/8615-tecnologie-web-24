@@ -26,4 +26,4 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     }
 }
 
-require 'template/layout.php';
+header('Location: index.php');
