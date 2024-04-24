@@ -72,6 +72,17 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertUser($nome, $cognome, $email, $password, $nickname, $imageUrl ){
+        $pswHash=password_hash($password,PASSWORD_DEFAULT);
+        $query = "INSERT INTO users
+                (nome, cognome, email, password, nickname, imageUrl) VALUES( ?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssss',$nome, $cognome, $email, $pswHash, $nickname, $imageUrl );
+        $stmt->execute();
+        
+        return $stmt->insert_id;
+    }
+
     public function insertPost($mediaUrl, $text, $isComment, $fkParent, $fkUser ){
         $query = "INSERT INTO posts (mediaUrl, text, isComment, fkParent, fkUser) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -117,13 +128,14 @@ class DatabaseHelper{
     }
 
     public function login($email, $password){
+        $pswHash=password_hash($password,PASSWORD_DEFAULT);
+        var_dump($pswHash);
         $query = "SELECT * FROM users WHERE (dataCancellazione is null) AND email = ? AND password = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$email, $password);
+        $stmt->bind_param('ss',$email, $pswHash);
         $stmt->execute();
-        $result = $stmt->get_result();
-        var_dump($query);
-        return $result->fetch_all(MYSQLI_ASSOC);
+        //$result = $stmt->get_result();
+        //return $result->fetch_all(MYSQLI_ASSOC);
     }    
 
 
