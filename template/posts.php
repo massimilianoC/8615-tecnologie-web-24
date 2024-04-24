@@ -5,8 +5,8 @@
                     <ul>
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg="./media/img/default-user-profile.jpg" ?>
                         <li class="post-element header">
-                            <span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
-                            <span><a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></a></span>
+                        <a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
+                        <span><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
                         </li>
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media"><img class="post-element image" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" /></li>
@@ -24,8 +24,8 @@
                                             <ul>
                                             <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg="./media/img/default-user-profile.jpg" ?>
                                                 <li class="post-element header">
-                                                    <span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
-                                                    <span><a href="userProfile.php?id=<?php echo $commentOwner["idUSER"]; ?>"><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></a></span>
+                                                    <a href="userProfile.php?id=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
+                                                    <span><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></span></a>
                                                 </li>
                                                 <?php if($comment["mediaUrl"]!="") : ?>
                                                     <li class="post-element media"><img class="post-element image" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" /></li>
