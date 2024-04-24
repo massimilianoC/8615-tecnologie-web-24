@@ -122,7 +122,7 @@ class DatabaseHelper{
         $stmt->bind_param('ss',$email, $password);
         $stmt->execute();
         $result = $stmt->get_result();
-
+        var_dump($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }    
 
