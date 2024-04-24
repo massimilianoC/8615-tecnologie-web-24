@@ -18,6 +18,6 @@
 <hr />
 <form action="register.php" method="GET">
     <li>
-        <input type="button" name="register" value="Registrati" />
+        <input type="submit" name="register" value="Registrati" />
     </li>
 </form>
