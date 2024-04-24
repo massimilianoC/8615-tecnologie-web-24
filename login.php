@@ -14,7 +14,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
 
 if(isUserLoggedIn()){
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ' . $_SERVER['REQUEST_URI']);
     /*
     $templateParams["titolo"] = "Home";
     $templateParams["nome"] = "home.php";
