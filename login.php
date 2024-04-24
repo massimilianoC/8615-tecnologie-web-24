@@ -12,19 +12,4 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     }
 }
 
-
-if(isUserLoggedIn()){
-    header('Location: ' . $_SERVER['REQUEST_URI']);
-    /*
-    $templateParams["titolo"] = "Home";
-    $templateParams["nome"] = "home.php";
-    $templateParams["users"] = $dbh->getUsers();
-    $templateParams["posts"] = $dbh->getPosts();
-    if(isset($_GET["formmsg"])){
-        $templateParams["formmsg"] = $_GET["formmsg"];
-    }
-    */
-}
-else{
-    header('Location: index.php');
-}
+header('Location: index.php');
