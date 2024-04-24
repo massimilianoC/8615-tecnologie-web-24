@@ -117,7 +117,7 @@ class DatabaseHelper{
     }
 
     public function login($email, $password){
-        $query = "SELECT * FROM users WHERE dataCancellazione = NULL AND email = ? AND password = ?";
+        $query = "SELECT * FROM users WHERE (dataCancellazione is null) AND email = ? AND password = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$email, $password);
         $stmt->execute();
