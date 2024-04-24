@@ -6,15 +6,28 @@ function isActive($pagename){
 }
 
 function isUserLoggedIn(){
-    return !empty($_SESSION['idUSER']);
+    if(empty($_SESSION['idUSER']))
+    {
+        return false;
+    }else {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
+            // last request was more than 30 minutes ago
+            session_unset();     // unset $_SESSION variable for the run-time 
+            session_destroy();   // destroy session data in storage
+            return false;
+        }
+        return true;
+    }
 }
 
 function registerLoggedUser($user){
+    session_start();
     $_SESSION["idUSER"] = $user["idUSER"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["nickname"] = $user["nickname"];
     $_SESSION["nome"] = $user["nome"];
     $_SESSION["cognome"] = $user["cognome"];
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 }
 
 function uploadImage($path, $image){
