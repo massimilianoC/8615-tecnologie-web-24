@@ -1,11 +1,11 @@
 <?php
 require_once 'bootstrap.php';
 
-if(isset($_POST["username"]) && isset($_POST["password"])){
-    $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
+if(isset($_POST["email"]) && isset($_POST["password"])){
+    $login_result = $dbh->login($_POST["email"], $_POST["password"]);
     if(count($login_result)==0){
         //Login fallito
-        $templateParams["errorelogin"] = "Errore! Controllare username o password!";
+        $templateParams["errorelogin"] = "Errore! Controllare email o password!";
     }
     else{
         registerLoggedUser($login_result[0]);
@@ -13,18 +13,17 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 }
 
 if(isUserLoggedIn()){
-    $templateParams["titolo"] = "Blog TW - Admin";
-    $templateParams["nome"] = "login-home.php";
-    $templateParams["articoli"] = $dbh->getPostByAuthorId($_SESSION["idautore"]);
+    $templateParams["titolo"] = "Home";
+    $templateParams["nome"] = "home.php";
+    $templateParams["users"] = $dbh->getUsers();
+    $templateParams["posts"] = $dbh->getPosts();
     if(isset($_GET["formmsg"])){
         $templateParams["formmsg"] = $_GET["formmsg"];
     }
 }
 else{
-    $templateParams["titolo"] = "Blog TW - Login";
+    $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login-form.php";
 }
-$templateParams["categorie"] = $dbh->getCategories();
-$templateParams["articolicasuali"] = $dbh->getRandomPosts(2);
 
 require 'template/layout.php';
