@@ -2,3 +2,8 @@ img.post.image{
     max-width: 200px;
     height: auto;
 }
+
+img.user.profile{
+    max-width: 25px;
+    height: auto;
+}
