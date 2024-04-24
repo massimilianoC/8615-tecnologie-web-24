@@ -74,7 +74,7 @@ class DatabaseHelper{
     public function getPostsVisibleToUserId($id){
         $query = "SELECT *
         FROM posts
-        WHERE fkUser = ? 
+        WHERE isComment = 0 AND fkUser = ? 
         or fkUser in (SELECT fkFollowed 
                         FROM tecnologieweb2024.followers as f
                         WHERE fkFollower = ? and isAccepted = 1)
@@ -86,6 +86,20 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getCommentsByPostId($id){    
+        $query = "SELECT *
+        FROM posts
+        WHERE isComment = 1 AND fkParent = ?
+        order by dataInserimento";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     public function getNotificationsByUserId($id){
         $query = "SELECT * FROM notifications WHERE fkUser=?";

@@ -13,11 +13,12 @@
                             <?php endif; ?>
                             <li><a href="post.php?id=<?php echo $post["idPOST"]; ?>"><?php echo $post["text"]; ?></a></li>
                         </ul>
-                        <section class="comments">
-                            <ul class="collection posts">
-                            <?php foreach($templateParams["posts"] as $comment) : ?>
-                                <?php if($comment["isComment"]==1 && $post["idPOST"]==$comment["fkParent"]) : ?>
-                                    <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
+                        <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
+                        <?php if(count($postComments)>0) : ?>
+                            <section class="comments">
+                                <ul class="collection posts">
+                                <?php foreach($postComments as $comment) : ?>
+                                        <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
                                             <li>
                                                 <ul>
                                                     <li>
@@ -29,11 +30,11 @@
                                                     <?php endif; ?>
                                                     <li><a href="post.php?id=<?php echo $comment["idPOST"]; ?>"><?php echo $comment["text"]; ?></a></li>
                                                 </ul>
-                                            </li>
-                                <?php endif; ?>        
-                            <?php endforeach; ?>
-                            </ul>
-                        </section>
+                                            </li>       
+                                <?php endforeach; ?>
+                                </ul>
+                            </section>
+                        <?php endif; ?>     
                     </li>
         <?php endif; ?>        
     <?php endforeach; ?>
