@@ -77,7 +77,8 @@ class DatabaseHelper{
         WHERE fkUser = ? 
         or fkUser in (SELECT fkFollowed 
                         FROM tecnologieweb2024.followers as f
-                        WHERE fkFollower = ? and isAccepted = 1)";
+                        WHERE fkFollower = ? and isAccepted = 1)
+        order by dataInserimento DESC ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii',$id,$id);
         $stmt->execute();
