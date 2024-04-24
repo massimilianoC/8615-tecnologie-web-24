@@ -6,7 +6,8 @@ if(isUserLoggedIn()){
     $templateParams["titolo"] = "Home";
     $templateParams["nome"] = "home.php";
     $templateParams["users"] = $dbh->getUsers();
-    $templateParams["posts"] = $dbh->getPosts();
+    $templateParams["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
+    $templateParams["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
 }else{
     //Login
     $templateParams["titolo"] = "Login";

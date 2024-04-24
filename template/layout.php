@@ -9,11 +9,9 @@
     <header>
         <h1>My Social Network</h1>
     </header>
-    <nav>
-        <ul>
-            <li>Home</li>
-        </ul>
-    </nav>
+        <?php
+        require("template/navigation.php"); 
+        ?>
     <main>
     <?php
     if(isset($templateParams["nome"])){

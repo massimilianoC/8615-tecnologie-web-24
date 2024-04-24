@@ -6,11 +6,12 @@ function isActive($pagename){
 }
 
 function isUserLoggedIn(){
-    if(empty($_SESSION['idUSER']))
+    if(empty($_SESSION['user']['isUSER']))
     {
         return false;
     }else {
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+            // last request was more than 30 minutes ago
             killSession();
             $templateParams["errorelogin"] = "Sessione scaduta!";
             return false;
@@ -20,7 +21,6 @@ function isUserLoggedIn(){
 }
 
 function killSession(){
-     // last request was more than 30 minutes ago
      session_unset();     // unset $_SESSION variable for the run-time 
      session_destroy();   // destroy session data in storage
 }
@@ -35,11 +35,7 @@ function randomNumbers($digits = 3){
 }
  
 function registerLoggedUser($user){
-    $_SESSION["idUSER"] = $user["idUSER"];
-    $_SESSION["email"] = $user["email"];
-    $_SESSION["nickname"] = $user["nickname"];
-    $_SESSION["nome"] = $user["nome"];
-    $_SESSION["cognome"] = $user["cognome"];
+    $_SESSION["user"] = $user;
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 }
 

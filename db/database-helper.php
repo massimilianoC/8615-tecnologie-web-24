@@ -17,6 +17,15 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getUserByUserId($id){
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE idUSER = ? ");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     public function getPosts($n=-1){
         $query = "SELECT * FROM posts ORDER BY dataInserimento DESC";
         if($n > 0){
@@ -56,6 +65,21 @@ class DatabaseHelper{
         $query = "SELECT * FROM followers WHERE fkFollower=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getPostsVisibleToUserId($id){
+        $query = "SELECT *
+        FROM posts
+        WHERE fkUser = ? 
+        or fkUser in (SELECT fkFollowed 
+                        FROM tecnologieweb2024.followers as f
+                        WHERE fkFollower = ? and isAccepted = 1)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$id,$id);
         $stmt->execute();
         $result = $stmt->get_result();
 
