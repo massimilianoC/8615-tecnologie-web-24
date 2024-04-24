@@ -12,7 +12,10 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     }
 }
 
+
 if(isUserLoggedIn()){
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    /*
     $templateParams["titolo"] = "Home";
     $templateParams["nome"] = "home.php";
     $templateParams["users"] = $dbh->getUsers();
@@ -20,10 +23,8 @@ if(isUserLoggedIn()){
     if(isset($_GET["formmsg"])){
         $templateParams["formmsg"] = $_GET["formmsg"];
     }
+    */
 }
 else{
-    $templateParams["titolo"] = "Login";
-    $templateParams["nome"] = "login-form.php";
+    header('Location: index.php');
 }
-
-require 'template/layout.php';
