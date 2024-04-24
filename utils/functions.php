@@ -21,7 +21,6 @@ function isUserLoggedIn(){
 }
 
 function registerLoggedUser($user){
-    session_start();
     $_SESSION["idUSER"] = $user["idUSER"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["nickname"] = $user["nickname"];
