@@ -7,10 +7,9 @@
                 <a href="userProfile.php?id=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                 <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
             </li>
-            <li class="post-element text"><?php echo $post["text"]; ?></li>
-            <li class="post-element text"><textarea name="text" cols="40" rows="5"></textarea></li>
-            <li class="post-element function buttons"><button class="upload media button">Add media...</button></li>
-            <li class="post-element function buttons save"><button class="save post button">Pubblica</button></li>
+            <li class="post-element input text"><textarea placeholder="A cosa stai pensando? ..." name="text" cols="40" rows="5"></textarea></li>
+            <li class="post-element input function buttons"><button class="upload media button">Add media...</button></li>
+            <li class="post-element save function buttons"><button class="save post button">Pubblica</button></li>
         </ul>
     </li>
 </ul>
