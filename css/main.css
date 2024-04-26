@@ -40,7 +40,7 @@ section.comments{
 }
 
 section.comments ul{
-    padding: 0px;;
+    padding-top: 5px;;
 }
 
 ul.collection.posts.detail{
@@ -50,7 +50,7 @@ ul.collection.posts.detail{
 }
 
 section.comments li.post{
-    padding: 10px;
+    padding-bottom: 5px;
 }
 
 li.timestamp{
