@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         preview.removeChild(preview.firstChild);
         }
     const curFiles = input.files;
+    const para = document.createElement("p");
     if (curFiles.length === 0) {
-        const para = document.createElement("p");
         para.textContent = "No files currently selected for upload";
         preview.appendChild(para);
     } else {
