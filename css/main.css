@@ -29,6 +29,10 @@ ul.collection.posts{
     padding: 0px;
 }
 
+ul.form.post{
+    padding: 0px;
+}
+
 ul.collection.posts.detail{
     padding: 5px;
     background-color: #f4f4f4;
