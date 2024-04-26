@@ -15,13 +15,16 @@ ul.collection.posts{
 
 ul.collection.posts.detail{
     padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
 }
 
 li.post.post-single-item{
     border: solid 1px black;
     width: 350px;
     border-radius: 10px;
-    padding: 10px;
+    background-color: #e0e0e0;
+    margin-bottom: 15px;
 }
 
 li.post.post-single-item button{
@@ -32,6 +35,22 @@ li.post-element{
     padding: 5px;
 }
 
+section.comments{
+    padding-left: 20px;
+}
+
 section.comments ul{
     padding: 0px;;
+}
+
+li.timestamp{
+    font-size: small;
+}
+
+li.header{
+    font-size: large;
+}
+
+li.text {
+    font-family: sans-serif;
 }
