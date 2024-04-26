@@ -30,7 +30,10 @@
                                                 </li>
                                                 <li class="post-element text"><?php echo $comment["text"]; ?></li>
                                                 <?php if($comment["mediaUrl"]!="") : ?>
-                                                    <li class="post-element media"><img class="post-element image" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" /></li>
+                                                    <li class="post-element media">
+                                                        <img class="post-element image source" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" />
+                                                        <span class="post-element image-background" style="background-image: <?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" />
+                                                    </li>
                                                 <?php endif; ?>
                                                 <li class="post-element timestamp"><?php echo $comment["dataInserimento"]; ?></li>
                                             </ul>

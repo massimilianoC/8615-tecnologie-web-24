@@ -1,4 +1,5 @@
-img.post-element.image{
+img.post-element.image.soruce{
+    display: none;
     max-width: 200px;
     height: auto;
 }
