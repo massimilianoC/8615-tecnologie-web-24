@@ -52,10 +52,12 @@ li.post-element{
 
 section.comments{
     overflow: hidden;
+    padding-top: 5px;
 }
 
 section.comments ul{
-    padding-top: 5px;;
+    padding-top: 5px;
+    padding-left: 20px;
 }
 
 ul.collection.posts.detail{
@@ -67,6 +69,10 @@ ul.collection.posts.detail{
 section.comments li.post{
     padding-bottom: 5px;
     padding-right: 5px;
+}
+
+li.buttons.save{
+    text-align: end;
 }
 
 li.timestamp{
