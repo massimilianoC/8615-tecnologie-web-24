@@ -8,7 +8,7 @@
                 <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
             </li>
             <li class="post-element input text"><textarea placeholder="A cosa stai pensando? ..." name="text" cols="40" rows="5"></textarea></li>
-            <li class="post-element preview input media"><div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" alt="" /></li>
+            <li class="post-element preview input media"><div class="post-element image-background"  alt="" /></li>
             <li class="post-element input function buttons"><input class="upload post media button" type="file" id="mediaUpload" name="media" accept="image/png, image/jpeg, image/jpg, video/mp4" capture/></li>
             <li class="post-element save function buttons"><button class="save post button">Pubblica</button></li>
         </ul>
