@@ -1,4 +1,4 @@
-const input = document.querySelector("input.input.function.buttons");
+const input = document.querySelector("input.upload.post.media.button");
 const preview = document.querySelector(".preview.input.media");
 
 input.addEventListener("change", updateImageDisplay);
