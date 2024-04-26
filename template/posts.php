@@ -13,7 +13,8 @@
                         <?php endif; ?>
                         <li class="post-element text"><?php echo $post["text"]; ?></li>
                         <li class="post-element function buttons"><button class="show-comment button toggle">Show comments</button></li>
-                        <li class="function add-comment"><button class="add-comment button">Add comment...</button></li>
+                        <li class="post-element function add-comment"><button class="add-comment button">Add comment...</button></li>
+                        <li class="post-element timestamp"><?php echo $post["dataInserimento"]; ?></li>
                     </ul>
                     <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
                     <?php if(count($postComments)>0) : ?>
