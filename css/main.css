@@ -49,6 +49,10 @@ ul.collection.posts.detail{
     border-radius: 5px;
 }
 
+section.comments li.post{
+    padding: 10px;
+}
+
 li.timestamp{
     font-size: small;
 }
