@@ -12,7 +12,7 @@
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media">
                                 <img class="post-element image source" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" />
-                                <span class="post-element image-background" style="background-image: <?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" />
+                                <span class="post-element image-background" style="background-image: <?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" />
                             </li>
                         <?php endif; ?>
                         <li class="post-element function buttons"><button class="show-comment button toggle">Show comments</button><button class="add-comment button">Add comment...</button></li>
