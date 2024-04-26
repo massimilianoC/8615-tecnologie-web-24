@@ -1,7 +1,21 @@
+section.posts.collection {
+    max-width: 400px;
+    background-color: #fcfcfc;
+}
+
 img.post-element.image.source{
     display: none;
     max-width: 200px;
     height: auto;
+}
+
+div.post-element.image-background{
+    display: block;
+    height: 180px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 img.user.profile{
@@ -12,6 +26,7 @@ img.user.profile{
 ul.collection.posts{
     list-style: none;
     list-style-position: outside;
+    padding: 0px;
 }
 
 ul.collection.posts.detail{
@@ -22,7 +37,6 @@ ul.collection.posts.detail{
 
 li.post.post-single-item{
     border: solid 1px black;
-    width: 350px;
     border-radius: 5px;
     background-color: #b2b2b2;
     margin-bottom: 15px;
@@ -34,6 +48,10 @@ li.post.post-single-item button{
 
 li.post-element{
     padding: 5px;
+}
+
+section.comments{
+    overflow: hidden;
 }
 
 section.comments ul{
@@ -48,7 +66,7 @@ ul.collection.posts.detail{
 
 section.comments li.post{
     padding-bottom: 5px;
-    width: 300px;
+    padding-right: 5px;
 }
 
 li.timestamp{

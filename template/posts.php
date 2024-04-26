@@ -12,11 +12,11 @@
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media">
                                 <img class="post-element image source" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" />
-                                <span class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" alt="" />
+                                <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" alt="" />
                             </li>
                         <?php endif; ?>
                         <li class="post-element function buttons"><button class="show-comment button toggle">Show comments</button><button class="add-comment button">Add comment...</button></li>
-                        <li class="post-element timestamp"><?php echo $post["dataInserimento"]; ?></li>
+                        <li class="post-element timestamp">post del: <?php echo $post["dataInserimento"]; ?></li>
                     </ul>
                     <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
                     <?php if(count($postComments)>0) : ?>
@@ -35,10 +35,10 @@
                                                 <?php if($comment["mediaUrl"]!="") : ?>
                                                     <li class="post-element media">
                                                         <img class="post-element image source" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" />
-                                                        <span class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>')" alt="" />
+                                                        <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>')" alt="" />
                                                     </li>
                                                 <?php endif; ?>
-                                                <li class="post-element timestamp"><?php echo $comment["dataInserimento"]; ?></li>
+                                                <li class="post-element timestamp">commento del: <?php echo $comment["dataInserimento"]; ?></li>
                                             </ul>
                                         </li>       
                             <?php endforeach; ?>

@@ -1,5 +1,7 @@
-<section>
-    <h2>Bacheca</h2>
+<section class="posts collection">
+    <?php
+        require("template/post-form.php"); 
+    ?>
     <?php
         require("template/posts.php"); 
     ?>
