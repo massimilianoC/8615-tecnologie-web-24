@@ -8,10 +8,10 @@
                         <a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                         <span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
                         </li>
+                        <li class="post-element text"><?php echo $post["text"]; ?></li>
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media"><img class="post-element image" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" /></li>
                         <?php endif; ?>
-                        <li class="post-element text"><?php echo $post["text"]; ?></li>
                         <li class="post-element function buttons"><button class="show-comment button toggle">Show comments</button><button class="add-comment button">Add comment...</button></li>
                         <li class="post-element timestamp"><?php echo $post["dataInserimento"]; ?></li>
                     </ul>
@@ -26,12 +26,12 @@
                                             <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg=DEFAULT_IMG_PROFILE ?>
                                                 <li class="post-element header">
                                                     <a href="userProfile.php?id=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
-                                                    <span><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></span></a>
+                                                    <span class="user name"><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></span></a>
                                                 </li>
+                                                <li class="post-element text"><?php echo $comment["text"]; ?></li>
                                                 <?php if($comment["mediaUrl"]!="") : ?>
                                                     <li class="post-element media"><img class="post-element image" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="" /></li>
                                                 <?php endif; ?>
-                                                <li class="post-element text"><?php echo $comment["text"]; ?></li>
                                                 <li class="post-element timestamp"><?php echo $comment["dataInserimento"]; ?></li>
                                             </ul>
                                         </li>       
