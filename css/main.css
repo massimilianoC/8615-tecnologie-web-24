@@ -7,3 +7,31 @@ img.user.profile{
     max-width: 25px;
     height: auto;
 }
+
+ul.collection.posts{
+    list-style: none;
+    list-style-position: outside;
+}
+
+ul.collection.posts.detail{
+    padding: 10px;
+}
+
+li.post.post-single-item{
+    border: solid 1px black;
+    width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+li.post.post-single-item button{
+    width: 120px;
+}
+
+li.post-element{
+    padding: 5px;
+}
+
+section.comments ul{
+    padding: 0px;;
+}

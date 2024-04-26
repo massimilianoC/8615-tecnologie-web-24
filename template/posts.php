@@ -1,8 +1,8 @@
 <ul class="collection posts">
     <?php foreach($templateParams["posts"] as $post) : ?>
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
-                <li>
-                    <ul>
+                <li class="post post-single-item">
+                    <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
                         <a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
@@ -22,7 +22,7 @@
                             <?php foreach($postComments as $comment) : ?>
                                     <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
                                         <li class="post">
-                                            <ul>
+                                            <ul class="collection posts detail">
                                             <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg=DEFAULT_IMG_PROFILE ?>
                                                 <li class="post-element header">
                                                     <a href="userProfile.php?id=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
