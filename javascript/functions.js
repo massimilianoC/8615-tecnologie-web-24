@@ -1,7 +1,9 @@
-const input = document.querySelector("input.upload.post.media.button");
-const preview = document.querySelector(".preview.input.media");
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.querySelector("input.upload.post.media.button");
+    const preview = document.querySelector(".preview.input.media");
+    input.addEventListener("change", updateImageDisplay);
+}, false);
 
-input.addEventListener("change", updateImageDisplay);
 
 function updateImageDisplay() {
   while (preview.firstChild) {
