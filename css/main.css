@@ -23,7 +23,7 @@ li.post.post-single-item{
     border: solid 1px black;
     width: 350px;
     border-radius: 5px;
-    background-color: #e0e0e0;
+    background-color: #b2b2b2;
     margin-bottom: 15px;
 }
 
@@ -33,10 +33,6 @@ li.post.post-single-item button{
 
 li.post-element{
     padding: 5px;
-}
-
-section.comments{
-    padding-left: 20px;
 }
 
 section.comments ul{
@@ -51,10 +47,12 @@ ul.collection.posts.detail{
 
 section.comments li.post{
     padding-bottom: 5px;
+    width: 300px;
 }
 
 li.timestamp{
     font-size: small;
+    text-align: end;
 }
 
 li.header{
@@ -63,4 +61,5 @@ li.header{
 
 li.text {
     font-family: sans-serif;
+    font-size: 14px;
 }
