@@ -56,14 +56,14 @@ li.timestamp{
 }
 
 li.header{
-    font-size: large;
+    font-size: medium;
 }
 
 li.header a{
    text-decoration: none; 
 }
 
-li.header a span{
+li.header a span.user.name{
     vertical-align: super;
 }
 

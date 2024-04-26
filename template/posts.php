@@ -6,7 +6,7 @@
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
                         <a href="userProfile.php?id=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
-                        <span><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
+                        <span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
                         </li>
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media"><img class="post-element image" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" /></li>
