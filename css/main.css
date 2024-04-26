@@ -59,6 +59,14 @@ li.header{
     font-size: large;
 }
 
+li.header a{
+   text-decoration: none; 
+}
+
+li.header a span{
+    vertical-align: super;
+}
+
 li.text {
     font-family: sans-serif;
     font-size: 14px;
