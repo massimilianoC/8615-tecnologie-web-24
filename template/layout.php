@@ -16,7 +16,6 @@
         ?>
     <main>
     <?php
-    var_dump($_SESSION['template']);
     if(isset($_SESSION['template']["nome"])){
         require($_SESSION['template']["nome"]);
     }

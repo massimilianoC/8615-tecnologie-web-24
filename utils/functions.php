@@ -29,7 +29,6 @@ function loginPage(){
     //Login
     $_SESSION['template']["titolo"] = "Login";
     $_SESSION['template']["nome"] = "login-form.php";
-    var_dump($_SESSION['template']);
 }
 
 function loadHome(){
