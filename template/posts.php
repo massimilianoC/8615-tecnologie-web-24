@@ -1,7 +1,9 @@
 <ul class="collection posts">
+<!-- POSTS COLLECTION --> 
     <?php foreach($templateParams["posts"] as $post) : ?>
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
         <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
+<!-- POST SINGLE ITEM TEMPLATE -->
                 <li class="post post-single-item">
                     <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
@@ -16,12 +18,16 @@
                                 <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" alt="" />
                             </li>
                         <?php endif; ?>
-                        <li class="post-element function buttons"><button class="show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <?php if(count($postComments)>0){ echo " (".count($postComments).")";} ?></button><button class="add-comment button">Aggiungi...</button></li>
+                        <li class="post-element function buttons">
+                            <button id="show-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-primary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <?php if(count($postComments)>0){ echo " (".count($postComments).")";} ?></button>
+                            <button id="add-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-secondary add-comment button">Commenta...</button></li>
                         <li class="post-element timestamp">post del: <?php echo $post["dataInserimento"]; ?></li>
                     </ul>
-                        <section class="comments hidden">
+<!-- COMMENTS SECTION -->
+                        <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
                             <ul class="collection posts">
-                            <li class="post comment-form hidden">
+<!-- ADD COMMENT FORM -->                                
+                            <li class="post comment-form hidden" id="add-comment-form-<?php echo $post["idPOST"]; ?>">
                                 <ul class="collection posts detail">
                                     <form method="post" action="new-post.php" enctype="multipart/form-data">
                                         <?php if($_SESSION["user"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$_SESSION["user"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
@@ -39,6 +45,7 @@
                                     </form>
                                 </ul>
                             </li>
+<!-- COMMENTS COLLECTION -->    
                             <?php if(count($postComments)>0) : ?>
                             <?php foreach($postComments as $comment) : ?>
                                     <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
