@@ -11,9 +11,11 @@ if(isset($_POST["text"]) && isset($_POST["media"]) && isset($_POST["idUSER"]) &&
     $imageName = basename($image["name"]);
     $path = UPLOAD_DIR ."/".date("y/m/d")."/".$idUSER."/";
     $fullPath = $path.$imageName;
-    uploadImage($path, $media);
+    $result = uploadImage($path, $media);
+    var_dump($result);
 //SAVE to DB
     $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
 }
 
-header('Location: index.php');
+//header('Location: index.php');
+//require 'template/layout.php';
