@@ -6,7 +6,6 @@ if(isUserLoggedIn()){
     $_SESSION['template']["users"] = $dbh->getUsers();
     $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
     //switch template
-    var_dump($_GET);
     if(isset($_GET["page"])){
         switch($_GET["page"]){
             case 'logout':
