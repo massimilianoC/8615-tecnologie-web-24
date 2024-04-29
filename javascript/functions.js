@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const input = document.querySelector("input.upload.post.media.button");
     const preview = document.querySelector("li.post-element.preview.input.media div");
-    input.addEventListener("change", updateImageDisplay);
+    if(input!=null)
+        input.addEventListener("change", updateImageDisplay);
 
     const showCommentButtons = document.querySelectorAll(".show-comment.button");
     const addCommentButtons = document.querySelectorAll(".add-comment.button");
