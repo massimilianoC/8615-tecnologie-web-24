@@ -4,7 +4,7 @@
         <?php foreach($_SESSION['template']["users"] as $utente): ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>"><?php echo $utente["nome"]; ?> <?php echo $utente["cognome"]; ?></a>
-                <span class="badge badge-primary badge-pill">+</span>
+                <a class="badge badge-primary badge-pill">Follow</a>
             </li>
         <?php endforeach; ?>
     </ul>
