@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+    const input = document.querySelector("input.upload.post.media.button");
     const preview = document.querySelector("li.post-element.preview.input.media div");
     input.addEventListener("change", updateImageDisplay);
 
