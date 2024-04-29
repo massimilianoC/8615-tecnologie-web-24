@@ -1,7 +1,7 @@
 <?php
 function isActive($pagename){
-    if(basename($_SERVER['PHP_SELF'])==$pagename){
-        echo " class='active' ";
+    if(str_contains($_SERVER['REQUEST_URI'],$pagename)){
+        echo " active ";
     }
 }
 
