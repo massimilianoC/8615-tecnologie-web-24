@@ -18,7 +18,7 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
         var_dump($result);
     } 
 //SAVE to DB
-    $_SESSION['dbh']->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
+    $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
 }
 
 header('Location: index.php');

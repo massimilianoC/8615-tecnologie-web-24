@@ -1,8 +1,8 @@
 <ul class="collection posts">
 <!-- POSTS COLLECTION --> 
     <?php foreach($_SESSION['template']["posts"] as $post) : ?>
-        <?php $postOwner = $_SESSION['dbh']->getUserByUserId($post["fkUser"]);?>
-        <?php $postComments = $_SESSION['dbh']->getCommentsByPostId($post["idPOST"]);?>
+        <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
+        <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
 <!-- POST SINGLE ITEM TEMPLATE -->
                 <li class="post post-single-item">
                     <ul class="collection posts detail">
@@ -46,7 +46,7 @@
 <!-- COMMENTS COLLECTION -->    
                             <?php if(count($postComments)>0) : ?>
                             <?php foreach($postComments as $comment) : ?>
-                                    <?php $commentOwner = $_SESSION['dbh']->getUserByUserId($comment["fkUser"]);?>
+                                    <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
                                         <li class="post">
                                             <ul class="collection posts detail">
                                             <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg=DEFAULT_IMG_PROFILE ?>
