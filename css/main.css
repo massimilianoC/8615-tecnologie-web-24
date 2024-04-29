@@ -47,7 +47,7 @@ li.post.post-single-item{
 }
 
 li.post.post-single-item button{
-    width: 120px;
+    max-width: 150px;
 }
 
 li.post-element{
