@@ -1,6 +1,7 @@
 <ul class="collection posts">
     <?php foreach($templateParams["posts"] as $post) : ?>
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
+        <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
                 <li class="post post-single-item">
                     <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
@@ -18,7 +19,6 @@
                         <li class="post-element function buttons"><button class="show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Show comments</button><button class="add-comment button">Add comment...</button></li>
                         <li class="post-element timestamp">post del: <?php echo $post["dataInserimento"]; ?></li>
                     </ul>
-                    <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
                         <section class="comments <?php if(count($postComments)==0){ echo " hidden";} ?>">
                             <ul class="collection posts">
                             <li class="post comment-form hidden">
