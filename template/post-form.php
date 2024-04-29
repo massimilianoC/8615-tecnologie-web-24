@@ -9,6 +9,9 @@
             </li>
             <li class="post-element input text"><textarea placeholder="A cosa stai pensando? ..." name="text" cols="40" rows="5"></textarea></li>
             <li class="post-element preview input media"><div class="post-element"  alt="" /></li>
+            <li class="hidden form input"><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" /></li>
+            <li class="hidden form input"><input type="number" id="isComment" name="isComment" value=0 /></li>
+            <li class="hidden form input"><input type="text" id="fkParent" name="fkParent" value="NULL" /></li>
             <li class="post-element input function buttons"><input class="upload post media button" type="file" id="mediaUpload" name="media" accept="image/png, image/jpeg, image/jpg, video/mp4" capture/></li>
             <li class="post-element save function buttons"><button class="save post button">Pubblica</button></li>
         </ul>
