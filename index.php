@@ -1,6 +1,5 @@
 <?php
 require_once 'bootstrap.php';
-$dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
 
 if(isUserLoggedIn()){
     //global user-data
