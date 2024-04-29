@@ -10,7 +10,7 @@
     </section>
     <section class="posts collection">
         <?php
-            if($_SESSION["user"]["idUSER"]==$_SESSION['template']["userProfile"]["idUser"])
+            if($_SESSION["user"]["idUSER"]==$_SESSION['template']["userProfile"]["idUSER"])
             {
             require("template/post-form.php"); 
             }
