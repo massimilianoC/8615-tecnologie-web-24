@@ -14,6 +14,9 @@ if(isUserLoggedIn()){
             case 'userprofile': 
                 loadUserData($_GET["iduser"]);
                 break;
+            case 'users': 
+                loadUsers();
+                break;
             case 'home':
                 default:
                     loadHome();
@@ -39,6 +42,11 @@ function loadHome(){
    $_SESSION['template']["nome"] = "home.php";
    $_SESSION['template']["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
 }
+
+function loadUsers(){
+    $_SESSION['template']["titolo"] = "Users";
+    $_SESSION['template']["nome"] = "users.php";
+ }
 
 function loadUserData($idUser){
    $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
