@@ -1,10 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const input = document.querySelector("input.upload.post.media.button");
+    
     const preview = document.querySelector("li.post-element.preview.input.media div");
-
-    const commentButtons = document.querySelectorAll("btn btn-primary")
-
     input.addEventListener("change", updateImageDisplay);
+
+    const showCommentButtons = document.querySelectorAll(".show-comment.button");
+    const addCommentButtons = document.querySelectorAll(".add-comment.button");
+    
+    showCommentButtons.forEach(button => {
+        button.addEventListener("click", showComments(button.getAttribute("postid")));
+    });
+
+    addCommentButtons.forEach(button => {
+        button.addEventListener("click", showComments(button.getAttribute("postid")));
+    });
+
+    function showComments(postId) {
+        let section = document.querySelector("#comment-section-"+postId);
+        section.setAttribute("class","comments");
+    }
 
     function updateImageDisplay() {
     while (preview.firstChild) {
