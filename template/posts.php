@@ -26,6 +26,7 @@
 <!-- COMMENTS SECTION -->
                         <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
                             <ul class="collection posts">
+                            <?php if(count($postComments)>0) : ?>
 <!-- ADD COMMENT FORM -->                                
                             <li class="post comment-form hidden" id="add-comment-form-<?php echo $post["idPOST"]; ?>">
                                 <ul class="collection posts detail">
@@ -44,7 +45,7 @@
                                 </ul>
                             </li>
 <!-- COMMENTS COLLECTION -->    
-                            <?php if(count($postComments)>0) : ?>
+                            
                             <?php foreach($postComments as $comment) : ?>
                                     <?php $commentOwner = $dbh->getUserByUserId($comment["fkUser"]);?>
                                         <li class="post">
