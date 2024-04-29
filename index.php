@@ -44,17 +44,24 @@ function loadHome(){
 }
 
 function loadUsers(){
+    $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
+    
+    //Follower/Following
     $_SESSION['template']["titolo"] = "Users";
     $_SESSION['template']["nome"] = "users.php";
+    $_SESSION["template"]["following"] = $dbh->getFollowedByUserId($_SESSION["user"]["idUSER"] );
  }
 
 function loadUserData($idUser){
    $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
    $_SESSION['template']["titolo"] = "Profilo Utente";
    $_SESSION['template']["nome"] = "userProfile.php";
+
    //selected user data
    $_SESSION['template']["userProfile"] = $dbh->getUserByUserId($idUser);
    $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
+   $_SESSION["template"]["following"] = $dbh->getFollowedByUserId($_SESSION["user"]["idUSER"] );
+   $_SESSION["template"]["follower"] = $dbh->getFollowerByUserId($_SESSION["user"]["idUSER"] );
 }
 
 require 'template/layout.php';

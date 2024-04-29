@@ -22,7 +22,6 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         else {
             $_SESSION['template']["errorelogin"] = "Hai dimenticato la password?";
         }
-       
     }
 }
 

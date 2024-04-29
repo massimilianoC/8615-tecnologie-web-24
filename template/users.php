@@ -4,7 +4,13 @@
         <?php foreach($_SESSION['template']["users"] as $utente): ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>"><?php echo $utente["nome"]; ?> <?php echo $utente["cognome"]; ?></a>
-                <a class="badge badge-primary badge-pill">Follow</a>
+                <?php $amIFollowing = 0; ?>
+                <?php foreach($_SESSION['template']["following"] as $followed): ?>
+                    <?php if($utente["idUSER"]==$followed["idUSER"]) $amIFollowing = 1 ?>
+                <?php endforeach; ?>
+                <span class="badge badge-<?php if($amIFollowing==1) echo 'secondary'; else echo 'primary' ?> badge-pill">
+                    <a><?php if($amIFollowing==1) echo 'Unfollow'; else echo 'Follow' ?></a>
+                </span>
             </li>
         <?php endforeach; ?>
     </ul>
