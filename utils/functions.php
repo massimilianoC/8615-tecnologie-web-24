@@ -25,27 +25,6 @@ function killSession(){
      session_destroy();   // destroy session data in storage
 }
 
-function loginPage(){
-    //Login
-    $_SESSION['template']["titolo"] = "Login";
-    $_SESSION['template']["nome"] = "login-form.php";
-}
-
-function loadHome(){
-   //Home
-   $_SESSION['template']["titolo"] = "Home";
-   $_SESSION['template']["nome"] = "home.php";
-   $_SESSION['template']["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
-}
-
-function loadUserData($idUser){
-   $_SESSION['template']["titolo"] = "Profilo Utente";
-   $_SESSION['template']["nome"] = "userProfile.php";
-   //selected user data
-   $_SESSION['template']["userProfile"] = $dbh->getUserByUserId($idUser);
-   $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
-}
-
 function logOut(){
     killSession();
     header('Location: index.php');
