@@ -11,7 +11,7 @@
                         <?php if($utente["idUSER"]==$followed["idUSER"]) $amIFollowing = 1 ?>
                     <?php endforeach; ?>
                     <span class="badge badge-<?php if($amIFollowing==1) echo 'secondary'; else echo 'primary' ?> badge-pill">
-                        <a><?php if($amIFollowing==1) echo 'Unfollow'; else echo 'Follow' ?></a>
+                        <a href="#"><?php if($amIFollowing==1) echo 'Unfollow'; else echo 'Follow' ?></a>
                     </span>
                 <?php endif; ?>
             </li>
