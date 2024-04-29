@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     showCommentButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
-            showComments(button.getAttribute("postid"))
+            toggleComments(button.getAttribute("postid"))
         });
     });
 
@@ -20,14 +20,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 
+    function toggleComments(postId) {
+        let section = document.querySelector("#comment-section-"+postId);
+        let sectionClass = section.getAttribute("class");
+        if(sectionClass.includes("hidden")){
+            showComments(postId);
+        } else {
+            hideComments(postId);
+        }
+    }
+
     function showComments(postId) {
-        console.log("Show comments post id "+postId);
         let section = document.querySelector("#comment-section-"+postId);
         section.setAttribute("class","comments");
     }
 
+    function hideComments(postId) {
+        let section = document.querySelector("#comment-section-"+postId);
+        section.setAttribute("class","comments hidden");
+        let form = document.querySelector("#add-comment-form-"+postId);
+        form.setAttribute("class","post comment-form hidden");
+    }
+
     function showAddCommentForm(postId){
-        console.log("Show add comments post id "+postId);
         let form = document.querySelector("#add-comment-form-"+postId);
         form.setAttribute("class","post comment-form");
     }
