@@ -29,6 +29,7 @@ function loginPage(){
     //Login
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login-form.php";
+    var_dump($templateParams);
 }
 
 function loadHome(){
