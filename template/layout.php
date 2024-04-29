@@ -16,6 +16,7 @@
         ?>
     <main>
     <?php
+    var_dump($templateParams);
     if(isset($templateParams["nome"])){
         require($templateParams["nome"]);
     }
