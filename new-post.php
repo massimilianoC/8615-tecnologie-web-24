@@ -13,7 +13,7 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     {
         $media = $_FILES['media'];
         $imageName = basename($media["name"]);
-        $path = UPLOAD_DIR ."/".date("y/m/d")."/".$idUSER."/";
+        $path = date("Y/m/d")."/".$idUSER."/";
         $fullPath = $path.$imageName;
         $result = uploadImage($path, $media);
         var_dump($result);
@@ -22,5 +22,5 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
 }
 
-//header('Location: index.php');
+header('Location: index.php');
 //require 'template/layout.php';

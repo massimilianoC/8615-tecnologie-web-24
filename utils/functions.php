@@ -62,7 +62,7 @@ function getPepper(){
 
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
-    $fullPath = $path.$imageName;
+    $fullPath = UPLOAD_DIR.$path.$imageName;
     
     $maxKB = 3000;
     $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
@@ -91,13 +91,13 @@ function uploadImage($path, $image){
             $i++;
             $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
         }
-        while(file_exists($path.$imageName));
-        $fullPath = $path.$imageName;
+        while(file_exists(UPLOAD_DIR.$path.$imageName));
+        $fullPath = UPLOAD_DIR.$path.$imageName;
     }
 
     // Create directory if it does not exist
-    if(!is_dir($path)) {
-        mkdir($path,0755, true);
+    if(!is_dir(UPLOAD_DIR.$path)) {
+        mkdir(UPLOAD_DIR.$path,0755, true);
     }
 
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
