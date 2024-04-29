@@ -1,4 +1,4 @@
-<form method="post" action="new-post.php" enctype="multipart/form-data">
+<form id="form-post" method="post" action="new-post.php" enctype="multipart/form-data">
 <ul class="form post">
     <li class="post post-single-item">
         <ul class="collection posts detail">

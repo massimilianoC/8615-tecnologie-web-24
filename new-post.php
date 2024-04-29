@@ -21,4 +21,4 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
 }
 
-header('Location: index.php');
+//header('Location: index.php');
