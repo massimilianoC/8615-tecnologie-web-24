@@ -94,10 +94,10 @@ function uploadImage($path, $image){
         while(file_exists($path.$imageName));
         $fullPath = $path.$imageName;
     }
-    
+
     // Create directory if it does not exist
     if(!is_dir($path)) {
-        mkdir($path);
+        mkdir($path,0755, true);
     }
 
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
