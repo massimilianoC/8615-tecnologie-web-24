@@ -79,6 +79,10 @@ li.buttons.save{
     text-align: end;
 }
 
+button.button{
+    margin-right: 5px;
+}
+
 li.timestamp{
     font-size: small;
     text-align: end;
