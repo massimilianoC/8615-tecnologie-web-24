@@ -8,7 +8,7 @@
                     <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
-                        <a href="index.php?page=userProfile&iduser=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
+                        <a href="index.php?page=$userprofile&iduser=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                         <span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
                         </li>
                         <li class="post-element text"><?php echo $post["text"]; ?></li>
@@ -32,7 +32,7 @@
                                     <form id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
                                         <?php if($_SESSION["user"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$_SESSION["user"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                                         <li class="post-element header">
-                                            <a href="index.php?page=userProfile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
+                                            <a href="index.php?page=$userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                                             <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
                                         </li>
                                         <li class="post-element input text"><textarea placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="5"></textarea></li>
@@ -51,7 +51,7 @@
                                             <ul class="collection posts detail">
                                             <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg=DEFAULT_IMG_PROFILE ?>
                                                 <li class="post-element header">
-                                                    <a href="index.php?page=userProfile&iduser=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
+                                                    <a href="index.php?page=$userprofile&iduser=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" /></span>
                                                     <span class="user name"><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></span></a>
                                                 </li>
                                                 <li class="post-element text"><?php echo $comment["text"]; ?></li>
