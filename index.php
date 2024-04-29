@@ -6,18 +6,19 @@ if(isUserLoggedIn()){
     $_SESSION['template']["users"] = $dbh->getUsers();
     $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
     //switch template
+    var_dump($_GET);
     if(isset($_GET["page"])){
         switch($_GET["page"]){
-            case "home":
-            default:
-                loadHome();
-                break;
-            case "logout":
+            case 'logout':
                 logOut();
                 break;
-            case "userProfile": 
+            case 'userprofile': 
                 loadUserData($_GET["iduser"]);
                 break;
+            case 'home':
+                default:
+                    loadHome();
+                    break;
         }
     } else{
         loadHome();
