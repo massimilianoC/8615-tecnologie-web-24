@@ -41,8 +41,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getPostByUserId($id){
-        $query = "SELECT * FROM posts WHERE fkUser=?";
+    public function getPostsByUserId($id){
+        $query = "SELECT * FROM posts WHERE  isComment = 0 ADN fkUser=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();

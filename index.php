@@ -2,16 +2,28 @@
 require_once 'bootstrap.php';
 
 if(isUserLoggedIn()){
-    //Home
-    $templateParams["titolo"] = "Home";
-    $templateParams["nome"] = "home.php";
+    //global user-data
     $templateParams["users"] = $dbh->getUsers();
-    $templateParams["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
     $templateParams["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
+    //switch template
+    if(isset($_GET["page"])){
+        switch($_GET["page"]){
+            case "home":
+            default:
+                loadHome();
+                break;
+            case "logout":
+                logOut();
+                break;
+            case "userProfile": 
+                loadUserData($_GET["idUSER"]);
+                break;
+        }
+    } else{
+        loadHome();
+    }
 }else{
-    //Login
-    $templateParams["titolo"] = "Login";
-    $templateParams["nome"] = "login-form.php";
+   loginPage();
 }
 
 require 'template/layout.php';
