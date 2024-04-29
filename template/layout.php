@@ -9,11 +9,10 @@
 </head>
 <body>
     <header>
-        <h1>My Social Network</h1>
-    </header>
-        <?php
+    <?php
         require("template/navigation.php"); 
         ?>
+    </header>
     <main>
     <?php
     if(isset($_SESSION['template']["nome"])){
