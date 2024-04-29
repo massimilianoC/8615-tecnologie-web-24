@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showAddCommentForm(postId){
         console.log("Show add comments post id "+postId);
-        let form = document.querySelector("#cadd-comment-form-"+postId);
+        let form = document.querySelector("#add-comment-form-"+postId);
         form.setAttribute("class","post comment-form");
     }
 
