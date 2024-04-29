@@ -7,7 +7,7 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     $fkParent = $_POST['fkParent'];
     $fullPath = "";
     //UPLOAD IMAGE
-    if(isset($_FILES['media']) && basename($media["name"])!="")
+    if(isset($_FILES['media']) && basename($_FILES['media']["name"])!="")
     {
         $media = $_FILES['media'];
         $imageName = basename($media["name"]);
