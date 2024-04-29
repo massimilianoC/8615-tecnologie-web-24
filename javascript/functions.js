@@ -7,17 +7,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const addCommentButtons = document.querySelectorAll(".add-comment.button");
     
     showCommentButtons.forEach(button => {
-        button.addEventListener("mousedown", function (){showComments(button.getAttribute("postid"))});
+        button.addEventListener("mousedown", function (){
+            showComments(button.getAttribute("postid"))
+        });
     });
 
     addCommentButtons.forEach(button => {
-        button.addEventListener("mousedown", function (){showComments(button.getAttribute("postid"))});
+        button.addEventListener("mousedown", 
+            function (){
+                showComments(button.getAttribute("postid"));
+                showAddCommentForm(button.getAttribute("postid"))
+            });
     });
 
     function showComments(postId) {
         console.log("Show comments post id "+postId);
         let section = document.querySelector("#comment-section-"+postId);
         section.setAttribute("class","comments");
+    }
+
+    function showAddCommentForm(postId){
+        console.log("Show add comments post id "+postId);
+        let form = document.querySelector("#cadd-comment-form-"+postId);
+        form.setAttribute("class","post comment-form");
     }
 
     function updateImageDisplay() {
