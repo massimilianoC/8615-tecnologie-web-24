@@ -42,7 +42,7 @@ class DatabaseHelper{
     }
 
     public function getPostsByUserId($id){
-        $query = "SELECT * FROM posts WHERE  isComment = 0 AND fkUser=?";
+        $query = "SELECT * FROM posts WHERE  isComment = 0 AND fkUser=? ORDER BY dataInserimento DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
