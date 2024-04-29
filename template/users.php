@@ -11,7 +11,11 @@
                         <?php if($utente["idUSER"]==$followed["idUSER"]) $amIFollowing = 1 ?>
                     <?php endforeach; ?>
                     <span class="badge badge-<?php if($amIFollowing==1) echo 'secondary'; else echo 'primary' ?> badge-pill">
-                        <a href="#"><?php if($amIFollowing==1) echo 'Unfollow'; else echo 'Follow' ?></a>
+                        <form id="follow-<?php echo $_SESSION['user']['idUSER'] ?>-<?php echo $utente["idUSER"]  ?> " action="follow.php" method="POST">
+                            <input class="hidden" type="number" name="fkFollower" value=<?php echo $_SESSION['user']['idUSER'] ?> />
+                            <input class="hidden" type="number" name="fkFollowed" value=<?php echo $utente["idUSER"]  ?> />
+                            <input type="submit" value="<?php if($amIFollowing==1) echo 'Unfollow'; else echo 'Follow' ?>" />
+                        </form>
                     </span>
                 <?php endif; ?>
             </li>
