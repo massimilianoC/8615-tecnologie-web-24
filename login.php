@@ -3,7 +3,7 @@ require_once 'bootstrap.php';
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
     $plainPassword = $_POST["password"];
-    $login_result = $dbh->getUserByEmail($_POST["email"]);
+    $login_result = $_SESSION['dbh']->getUserByEmail($_POST["email"]);
 
     if(count($login_result)==0){
         //Login fallito
