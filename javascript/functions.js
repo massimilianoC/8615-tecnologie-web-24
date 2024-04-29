@@ -15,35 +15,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function showComments(postId) {
+        console.log("Show comments post id "+postId);
         let section = document.querySelector("#comment-section-"+postId);
         section.setAttribute("class","comments");
     }
 
     function updateImageDisplay() {
-    while (preview.firstChild) {
-        preview.removeChild(preview.firstChild);
-        }
-    const curFiles = input.files;
-    const para = document.createElement("p");
-    if (curFiles.length === 0) {
-        para.textContent = "No files currently selected for upload";
-        preview.appendChild(para);
-    } else {
-        for (const file of curFiles) {
-        if (validFileType(file)) {
-            para.textContent = `File name ${file.name}, file size ${returnFileSize(
-            file.size,
-            )}.`;
-            preview.setAttribute("class","post-element image-background");
-            preview.setAttribute("style","background-image: url('"+URL.createObjectURL(file)+"')");
-            //image.alt = image.title = file.name;
+        while (preview.firstChild) {
+            preview.removeChild(preview.firstChild);
+            }
+        const curFiles = input.files;
+        const para = document.createElement("p");
+        if (curFiles.length === 0) {
+            para.textContent = "No files currently selected for upload";
+            preview.appendChild(para);
         } else {
-            para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
-            listItem.appendChild(para);
+            for (const file of curFiles) {
+            if (validFileType(file)) {
+                para.textContent = `File name ${file.name}, file size ${returnFileSize(
+                file.size,
+                )}.`;
+                preview.setAttribute("class","post-element image-background");
+                preview.setAttribute("style","background-image: url('"+URL.createObjectURL(file)+"')");
+                //image.alt = image.title = file.name;
+            } else {
+                para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
+                listItem.appendChild(para);
+            }
+            list.appendChild(listItem);
+            }
         }
-        list.appendChild(listItem);
-        }
-    }
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
