@@ -17,7 +17,7 @@ if(isUserLoggedIn()){
                 logOut();
                 break;
             case "userProfile": 
-                loadUserData($_GET["idUSER"]);
+                loadUserData($_GET["iduser"]);
                 break;
         }
     } else{
