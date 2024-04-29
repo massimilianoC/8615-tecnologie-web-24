@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const addCommentButtons = document.querySelectorAll(".add-comment.button");
     
     showCommentButtons.forEach(button => {
-        button.addEventListener("mousedown", showComments(button.getAttribute("postid")));
+        button.addEventListener("mousedown", function (){showComments(button.getAttribute("postid"))});
     });
 
     addCommentButtons.forEach(button => {
-        button.addEventListener("mousedown", showComments(button.getAttribute("postid")));
+        button.addEventListener("mousedown", function (){showComments(button.getAttribute("postid"))});
     });
 
     function showComments(postId) {
