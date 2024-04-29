@@ -13,7 +13,7 @@ function isUserLoggedIn(){
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
             // last request was more than 30 minutes ago
             killSession();
-            $templateParams["errorelogin"] = "Sessione scaduta!";
+            $_SESSION['template']["errorelogin"] = "Sessione scaduta!";
             return false;
         }
         return true;
@@ -27,24 +27,24 @@ function killSession(){
 
 function loginPage(){
     //Login
-    $templateParams["titolo"] = "Login";
-    $templateParams["nome"] = "login-form.php";
-    var_dump($templateParams);
+    $_SESSION['template']["titolo"] = "Login";
+    $_SESSION['template']["nome"] = "login-form.php";
+    var_dump($_SESSION['template']);
 }
 
 function loadHome(){
    //Home
-   $templateParams["titolo"] = "Home";
-   $templateParams["nome"] = "home.php";
-   $templateParams["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
+   $_SESSION['template']["titolo"] = "Home";
+   $_SESSION['template']["nome"] = "home.php";
+   $_SESSION['template']["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
 }
 
 function loadUserData($idUser){
-   $templateParams["titolo"] = "Profilo Utente";
-   $templateParams["nome"] = "userProfile.php";
+   $_SESSION['template']["titolo"] = "Profilo Utente";
+   $_SESSION['template']["nome"] = "userProfile.php";
    //selected user data
-   $templateParams["userProfile"] = $dbh->getUserByUserId($idUser);
-   $templateParams["posts"] = $dbh->getPostsByUserId($idUser);
+   $_SESSION['template']["userProfile"] = $dbh->getUserByUserId($idUser);
+   $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
 }
 
 function logOut(){

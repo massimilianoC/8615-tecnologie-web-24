@@ -1,7 +1,7 @@
 <form action="login.php" method="POST">
     <h2>Login</h2>
-    <?php if(isset($templateParams["errorelogin"])): ?>
-    <p><?php echo $templateParams["errorelogin"]; ?></p>
+    <?php if(isset($_SESSION['template']["errorelogin"])): ?>
+    <p><?php echo $_SESSION['template']["errorelogin"]; ?></p>
     <?php endif; ?>
     <ul>
         <li>

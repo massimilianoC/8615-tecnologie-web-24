@@ -7,7 +7,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     if(count($login_result)==0){
         //Login fallito
-        $templateParams["errorelogin"] = "Errore! Controllare email o password!";
+        $_SESSION['template']["errorelogin"] = "Errore! Controllare email o password!";
     }
     else{
         $user = $login_result[0];
@@ -20,7 +20,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             registerLoggedUser($user);
         }
         else {
-            $templateParams["errorelogin"] = "Hai dimenticato la password?";
+            $_SESSION['template']["errorelogin"] = "Hai dimenticato la password?";
         }
        
     }

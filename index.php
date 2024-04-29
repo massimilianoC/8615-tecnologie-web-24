@@ -3,8 +3,8 @@ require_once 'bootstrap.php';
 
 if(isUserLoggedIn()){
     //global user-data
-    $templateParams["users"] = $dbh->getUsers();
-    $templateParams["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
+    $_SESSION['template']["users"] = $dbh->getUsers();
+    $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
     //switch template
     if(isset($_GET["page"])){
         switch($_GET["page"]){

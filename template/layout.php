@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo $templateParams["titolo"]; ?></title>
+    <title><?php echo $_SESSION['template']["titolo"]; ?></title>
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="javascript/functions.js"></script> 
@@ -16,9 +16,9 @@
         ?>
     <main>
     <?php
-    var_dump($templateParams);
-    if(isset($templateParams["nome"])){
-        require($templateParams["nome"]);
+    var_dump($_SESSION['template']);
+    if(isset($_SESSION['template']["nome"])){
+        require($_SESSION['template']["nome"]);
     }
     ?>
     </main>
