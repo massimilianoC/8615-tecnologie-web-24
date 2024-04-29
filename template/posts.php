@@ -15,7 +15,7 @@
                                 <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" alt="" />
                             </li>
                         <?php endif; ?>
-                        <li class="post-element function buttons"><button class="show-comment button toggle">Show comments</button><button class="add-comment button">Add comment...</button></li>
+                        <li class="post-element function buttons"><button class="show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Show comments</button><button class="add-comment button">Add comment...</button></li>
                         <li class="post-element timestamp">post del: <?php echo $post["dataInserimento"]; ?></li>
                     </ul>
                     <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
