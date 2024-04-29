@@ -14,7 +14,7 @@
                         <form id="follow-<?php echo $_SESSION['user']['idUSER'] ?>-<?php echo $utente["idUSER"]  ?> " action="follow.php" method="POST">
                             <input class="hidden" type="number" name="fkFollower" value=<?php echo $_SESSION['user']['idUSER'] ?> />
                             <input class="hidden" type="number" name="fkFollowed" value=<?php echo $utente["idUSER"]  ?> />
-                            <input class="hidden" type="number" name="doFollow" value=<?php if($amIFollowing==1) echo 0; else echo 1 ?>  ?> />
+                            <input class="hidden" type="number" name="doFollow" value=<?php if($amIFollowing==1) echo 0; else echo 1 ?>  />
                             <input type="submit" value="<?php if($amIFollowing==1) echo 'Unfollow'; else echo 'Follow' ?>" />
                         </form>
                     </span>
