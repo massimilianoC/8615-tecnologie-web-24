@@ -94,9 +94,15 @@ function uploadImage($path, $image){
         while(file_exists($path.$imageName));
         $fullPath = $path.$imageName;
     }
+    
+    // Create directory if it does not exist
+    if(!is_dir($path)) {
+        mkdir($path);
+    }
 
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
     if(strlen($msg)==0){
+        
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
             $msg.= "Errore nel caricamento dell'immagine.";
         }

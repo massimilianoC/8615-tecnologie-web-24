@@ -125,9 +125,15 @@ class DatabaseHelper{
     }
 
     public function insertPost($mediaUrl, $text, $isComment, $fkParent, $fkUser ){
-        $query = "INSERT INTO posts (mediaUrl, text, isComment, fkParent, fkUser) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssiii',$mediaUrl, $text, $isComment, $fkParent, $fkUser);
+        if($fkParent > 0){
+            $query = "INSERT INTO posts (mediaUrl, text, isComment, fkParent, fkUser) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssiii',$mediaUrl, $text, $isComment, $fkParent, $fkUser);
+        }else{
+            $query = "INSERT INTO posts (mediaUrl, text, isComment, fkUser) VALUES (?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssii',$mediaUrl, $text, $isComment, $fkUser);
+        }
         $stmt->execute();
         
         return $stmt->insert_id;
