@@ -39,7 +39,7 @@
                                         <li class="hidden form input"><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" /></li>
                                         <li class="hidden form input"><input type="number" id="isComment" name="isComment" value=1 /></li>
                                         <li class="hidden form input"><input type="number" id="fkParent" name="fkParent" value=<?php echo $post["idPOST"]; ?> /></li>
-                                        <li class="post-element save function buttons"><input type="submit" class="save post button">Pubblica</button></li>
+                                        <li class="post-element save function buttons"><input type="submit" value="Pubblica" class="btn btn-primary save post button"></button></li>
                                     </form>
                                 </ul>
                             </li>
