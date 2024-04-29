@@ -1,7 +1,5 @@
 <?php
 require_once 'bootstrap.php';
-var_dump($_POST);
-
 if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]) && isset($_POST["fkParent"])){
     $text = $_POST['text'];
     $isComment = $_POST['isComment'];
@@ -9,10 +7,11 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     $fkParent = $_POST['fkParent'];
     $fullPath = "";
     //UPLOAD IMAGE
-    if(isset($_FILES['media']))
+    if(isset($_FILES['media']) && basename($media["name"])!="")
     {
         $media = $_FILES['media'];
         $imageName = basename($media["name"]);
+        var_dump($imageName);
         $path = date("Y/m/d")."/".$idUSER."/";
         $fullPath = $path.$imageName;
         $result = uploadImage($path, $media);
@@ -23,4 +22,3 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
 }
 
 header('Location: index.php');
-//require 'template/layout.php';
