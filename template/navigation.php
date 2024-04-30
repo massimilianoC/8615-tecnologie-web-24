@@ -10,7 +10,7 @@
         <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Notifiche <span class="badge text-bg-secondary">4</span></button></li>
         <li class="nav-item"><a class="nav-link <?php isActive("home") ?>" href="index.php?page=home"><i class="bi bi-house"></i> Home</a></li>
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("userprofile") ?>" href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"] ?>"><i class="bi bi-person-circle"></i> Profilo</a></li>
-        <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("users") ?>" href="index.php?page=users"><i class="bi bi-people"></i> Utenit</a></li>
+        <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("users") ?>" href="index.php?page=users"><i class="bi bi-people"></i> Utenti</a></li>
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=logout"><i class="bi bi-power"></i> Log Out</a></li>
         <?php else: ?>
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=login"><i class="bi bi-key"></i> Log In</a></li>
