@@ -1,6 +1,6 @@
 <?php
 require_once 'bootstrap.php';
-
+$routePage = "login";
 if(isset($_POST["email"]) && isset($_POST["password"])){
     $plainPassword = $_POST["password"];
     $login_result = $dbh->getUserByEmail($_POST["email"]);
@@ -18,6 +18,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         if (password_verify($pwd_peppered, $pwd_hashed)) {
             //echo "Password matches.";
             registerLoggedUser($user);
+            $routePage = "home";
         }
         else {
             $_SESSION['template']["errorelogin"] = "Hai dimenticato la password?";
@@ -25,4 +26,4 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     }
 }
 
-header('Location: index.php');
+header('Location: index.php?page='.$routePage);

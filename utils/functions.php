@@ -27,7 +27,7 @@ function killSession(){
 
 function logOut(){
     killSession();
-    header('Location: index.php');
+    header('Location: index.php?page=login');
 }
 
 function randomNumbers($digits = 3){
