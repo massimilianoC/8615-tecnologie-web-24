@@ -27,6 +27,8 @@
     }
     ?>
     </main>
+    <aside class="d-none d-lg-block">
+    </aside>
     <footer>
         <p>Tecnologie Web - A.A. 2022/2023</p>
     </footer>

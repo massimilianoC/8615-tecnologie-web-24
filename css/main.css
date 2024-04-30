@@ -82,6 +82,10 @@ li.buttons.save{
     text-align: end;
 }
 
+li a.active span{
+    text-decoration: underline;
+}
+
 button.button{
     margin-right: 5px;
 }
