@@ -17,6 +17,9 @@ if(isUserLoggedIn()){
             case 'users': 
                 loadUsers();
                 break;
+            case 'register': 
+                registerPage();
+                break;
             case 'home':
                 default:
                     loadHome();
@@ -33,6 +36,11 @@ function loginPage(){
     //Login
     $_SESSION['template']["titolo"] = "Login";
     $_SESSION['template']["nome"] = "login-form.php";
+}
+
+function registerPage(){
+    $_SESSION['template']["titolo"] = "Register";
+    $_SESSION['template']["nome"] = "registration-form.php";
 }
 
 function loadHome(){
