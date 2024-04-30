@@ -17,7 +17,7 @@
                             <input class="hidden" type="number" name="fkFollower" value=<?php echo $_SESSION['user']['idUSER'] ?> />
                             <input class="hidden" type="number" name="fkFollowed" value=<?php echo $utente["idUSER"]  ?> />
                             <input class="hidden" type="number" name="doFollow" value=<?php if($amIFollowing==1) echo 0; else echo 1 ?>  />
-                            <button class="btn-sm btn btn-outline-<?php if($amIFollowing==1) echo 'primary'; else echo 'secondary' ?>"  type="submit">
+                            <button class="btn-sm btn btn-outline-<?php if($amIFollowing==1) echo 'secondary'; else echo 'primary' ?>"  type="submit">
                                 <?php if($amIFollowing==1) echo '<i class="bi bi-x-circle"></i> Unfollow'; else echo '<i class="bi bi-plus-circle"></i> Follow' ?>
                             </button>
                         </form>

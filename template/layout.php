@@ -17,10 +17,11 @@
     ?>
     </header>
     <main>
-    <?php
+    <?php if(isUserLoggedIn()){
+        require("template/notifications.php"); 
+    }else{
         require("template/alerts.php"); 
-    ?>
-    <?php
+    }
     if(isset($_SESSION['template']['nome'])){
         require($_SESSION['template']['nome']);
     }
