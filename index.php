@@ -17,9 +17,6 @@ if(isUserLoggedIn()){
             case 'users': 
                 loadUsers();
                 break;
-            case 'register': 
-                registerPage();
-                break;
             case 'home':
             default:
                 loadHome();
@@ -29,7 +26,20 @@ if(isUserLoggedIn()){
         loadHome();
     }
 }else{
-   loginPage();
+    if(isset($_GET["page"])){
+        switch($_GET["page"]){
+            case 'register': 
+                registerPage();
+                break;
+            case 'login':
+            default:
+                loginPage();
+                break;
+            }
+        }
+        else{
+            loginPage();
+        }
 }
 
 require 'template/layout.php';

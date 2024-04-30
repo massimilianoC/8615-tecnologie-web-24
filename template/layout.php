@@ -14,12 +14,15 @@
     <header>
     <?php
         require("template/navigation.php"); 
-        ?>
+    ?>
     </header>
     <main>
     <?php
-    if(isset($_SESSION['template']["nome"])){
-        require($_SESSION['template']["nome"]);
+        require("template/alerts.php"); 
+    ?>
+    <?php
+    if(isset($_SESSION['template']['nome'])){
+        require($_SESSION['template']['nome']);
     }
     ?>
     </main>
