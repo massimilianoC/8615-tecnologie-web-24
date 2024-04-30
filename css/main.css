@@ -1,5 +1,8 @@
-section.posts.collection {
+main{
     max-width: 400px;
+}
+
+section.posts.collection {
     background-color: #fcfcfc;
 }
 
