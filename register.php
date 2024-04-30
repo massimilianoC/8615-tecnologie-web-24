@@ -1,9 +1,6 @@
 <?php
 require_once 'bootstrap.php';
 
-$_SESSION['template']["titolo"] = "Register";
-$_SESSION['template']["nome"] = "registration-form.php";
-
 if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) && isset($_POST["cognome"])){
         $pwd = $_POST['password'];
         $email = $_POST['email'];
@@ -25,5 +22,6 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
             $_SESSION['template']["erroreRegistrazione"] = "Email già registrata!";
          }
 } 
+
 require 'template/layout.php';
 
