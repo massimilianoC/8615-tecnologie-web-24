@@ -7,7 +7,7 @@
                 <a href="userProfile.php?id=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                 <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
             </li>
-            <li class="post-element input text"><textarea placeholder="A cosa stai pensando? ..." name="text" cols="40" rows="5"></textarea></li>
+            <li class="post-element input text"><textarea placeholder="A cosa stai pensando? ..." name="text" cols="50" rows="2"></textarea></li>
             <li class="post-element preview input media"><div class="post-element"  alt="" /></li>
             <li class="hidden form input"><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" /></li>
             <li class="hidden form input"><input type="number" id="isComment" name="isComment" value=0 /></li>
