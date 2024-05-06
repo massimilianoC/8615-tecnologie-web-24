@@ -66,7 +66,7 @@ class DatabaseHelper{
     public function getFollowersByUserId($id){
         $query = "select u.* from users u
         left join followers f on  u.idUSER = f.fkFollower 
-        where f.fkFollowed  =  ?";
+        where f.fkFollowed  =  ? and f.isAccepted = 1 ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -78,7 +78,8 @@ class DatabaseHelper{
     public function getFollowedByUserId($id){
         $query = "select u.* from users u
         left join followers f on  u.idUSER = f.fkFollowed 
-        where f.fkFollower  =  ?";
+        where f.fkFollower  =  ?
+        and f.isAccepted = 1 ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -165,9 +166,10 @@ class DatabaseHelper{
     }
 
     public function updateFollower( $isAccepted, $fkFollower, $fkFollowed){
-        $query = "UPDATE followers SET isAccepted = ? WHERE fkFollower = ? AND fkFollowed = ?";
+        $date = date('Y-m-d H:i:s');
+        $query = "UPDATE followers SET isAccepted = ?, dafaFollow = ? WHERE fkFollower = ? AND fkFollowed = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii',$isAccepted, $fkFollower, $fkFollowed);
+        $stmt->bind_param('isii',$isAccepted,  $date,  $fkFollower, $fkFollowed );
         $stmt->execute();
         
         return $stmt->insert_id;
