@@ -73,7 +73,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getFollowersByUserId($id){
+    public function getActiveFollowersByUserId($id){
         $query = "select u.* from users u
         left join followers f on  u.idUSER = f.fkFollower 
         where f.fkFollowed  =  ? and f.isAccepted = 1 ";
@@ -85,7 +85,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getFollowedByUserId($id){
+    public function getActiveFollowedByUserId($id){
         $query = "select u.* from users u
         left join followers f on  u.idUSER = f.fkFollowed 
         where f.fkFollower  =  ?
@@ -97,6 +97,19 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getAllFollowed($id){
+        $query = "select u.* from users u
+        left join followers f on  u.idUSER = f.fkFollowed 
+        where f.fkFollower  =  ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     public function getPostsVisibleToUserId($id){
         $query = "SELECT *

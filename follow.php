@@ -5,7 +5,7 @@ echo'<br />';
 echo'<br />';
 if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     $doUpdate = 0;
-    $followed = $dbh->getFollowedByUserId($_POST['fkFollower']);
+    $followed = $dbh->getAllFollowed($_POST['fkFollower']);
     foreach ($followed as $user) {  
         var_dump($user);  
         echo'<br />';

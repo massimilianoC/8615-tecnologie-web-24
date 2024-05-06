@@ -24,7 +24,7 @@ function loadUsers(){
     //Follower/Following
     $_SESSION['template']["titolo"] = "Users";
     $_SESSION['template']["nome"] = "users.php";
-    $_SESSION["template"]["following"] = $dbh->getFollowedByUserId($_SESSION["user"]["idUSER"] );
+    $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($_SESSION["user"]["idUSER"] );
  }
 
 function loadUserData($idUser){
@@ -36,6 +36,6 @@ function loadUserData($idUser){
    //selected user data
    $_SESSION['template']["userProfile"] = $dbh->getUserByUserId($idUser);
    $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
-   $_SESSION["template"]["following"] = $dbh->getFollowedByUserId($_SESSION["user"]["idUSER"] );
-   $_SESSION["template"]["follower"] = $dbh->getFollowersByUserId($_SESSION["user"]["idUSER"] );
+   $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($_SESSION["user"]["idUSER"] );
+   $_SESSION["template"]["follower"] = $dbh->getActiveFollowersByUserId($_SESSION["user"]["idUSER"] );
 }
