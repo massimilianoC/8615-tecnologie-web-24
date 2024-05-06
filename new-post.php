@@ -18,7 +18,12 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
         var_dump($result);
     } 
 //SAVE to DB
-    $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
+    $iid = $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
+//INSERT NOTIFICATIONS
+    $followers = $dbh->getActiveFollowersByUserId($_SESSION["user"]["idUSER"] );
+    foreach($followers as $follower) {
+        $dbh->insertNotification($follower["idUSER"],$iid,0);
+    }
 }
 
 header('Location: index.php');
