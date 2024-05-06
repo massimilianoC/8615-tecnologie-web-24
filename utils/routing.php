@@ -37,5 +37,5 @@ function loadUserData($idUser){
    $_SESSION['template']["userProfile"] = $dbh->getUserByUserId($idUser);
    $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
    $_SESSION["template"]["following"] = $dbh->getFollowedByUserId($_SESSION["user"]["idUSER"] );
-   $_SESSION["template"]["follower"] = $dbh->getFollowerByUserId($_SESSION["user"]["idUSER"] );
+   $_SESSION["template"]["follower"] = $dbh->getFollowersByUserId($_SESSION["user"]["idUSER"] );
 }
