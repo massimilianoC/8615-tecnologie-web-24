@@ -6,11 +6,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- $_SESSION['template']["notifications"] -->
-        <?php foreach($_SESSION['template']["notifications"] as $post) : ?>
+        <?php foreach($_SESSION['template']["notifications"] as $notification) : ?>
           <ul class="list-group">
-            <li class="list-group-item alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <li class="list-group-item alert alert-warning alert-dismissible fade show 
+            <?php if($notification['read'] > 0) echo 'read' ?>  
+            <?php echo (($notification['fkPost']!= NULL)? 'list-group-item-info' : 'list-group-item-warning') ?>" 
+            role="alert">
+              <?php if($notification['fkPost']!= NULL) : ?>
+                <strong><?php echo'FOLLOWER' ?></strong><span>: <a>[...]</a> ha iniziato a seguirti</span>
+              <?php else : ?>
+                <strong><?php echo'POST' ?></strong><span>: <a>Nuovo post</a> di [...]</span>
+              <?php endif; ?>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </li>
           </ul>
