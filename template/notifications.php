@@ -12,10 +12,12 @@
             <?php if($notification['read'] > 0) echo 'read' ?>  
             <?php echo (($notification['fkPost']!= NULL)? 'list-group-item-info' : 'list-group-item-warning') ?>" 
             role="alert">
-              <?php if($notification['fkPost']!= NULL) : ?>
-                <strong><?php echo'FOLLOWER' ?></strong><span>: <a>[...]</a> ha iniziato a seguirti</span>
+              <?php if($notification['fkUser']!= NULL) : ?>
+                <?php $follower = $dbh->getUserByUserId($notification['fkUser']);?>
+                <i class="bi bi-person-add"></i><span><a href="#"><strong><?php echo $follower['Nome'].' '.$follower['Cognome']  ?></strong></a> ha iniziato a seguirti</span>
               <?php else : ?>
-                <strong><?php echo'POST' ?></strong><span>: <a>Nuovo post</a> di [...]</span>
+                <?php $user = $dbh->getUserByPostId($notification['fkPost']);?>
+                <i class="bi bi-file-post"></i><span><a href="#"><strong><?php echo $follower['Nome'].' '.$follower['Cognome']  ?></strong></a> ha pubblicato un post</span>
               <?php endif; ?>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </li>

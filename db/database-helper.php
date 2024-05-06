@@ -26,6 +26,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    public function getUserByPostId($id){
+        $query = "SELECT u.* FROM users u, posts p WHERE p.idPOST=? and p.fkUser=u.idUSER";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     public function getPosts($n=-1){
         $query = "SELECT * FROM posts ORDER BY dataInserimento DESC";
         if($n > 0){
@@ -50,6 +60,8 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+
 
     public function getFollowerByUserId($id){
         $query = "SELECT u.* FROM users u, followers f WHERE f.fkFollowed=? and f.fkFollower=u.idUSER";
