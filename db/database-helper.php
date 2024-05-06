@@ -167,7 +167,7 @@ class DatabaseHelper{
     public function updateFollower( $isAccepted, $fkFollower, $fkFollowed){
         $query = "UPDATE followers SET isAccepted = ? WHERE fkFollower = ? AND fkFollowed = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sii',$isAccepted, $fkFollower, $fkFollowed);
+        $stmt->bind_param('iii',$isAccepted, $fkFollower, $fkFollowed);
         $stmt->execute();
         
         return $stmt->insert_id;
