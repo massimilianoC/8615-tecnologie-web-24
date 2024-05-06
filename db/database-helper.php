@@ -177,7 +177,7 @@ class DatabaseHelper{
 
     public function updateFollower( $isAccepted, $fkFollower, $fkFollowed){
         $date = date('Y-m-d H:i:s');
-        $query = "UPDATE followers SET isAccepted = ?, dafaFollow = ? WHERE fkFollower = ? AND fkFollowed = ?";
+        $query = "UPDATE followers SET isAccepted = ?, dataFollow = ? WHERE fkFollower = ? AND fkFollowed = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('isii',$isAccepted,  $date,  $fkFollower, $fkFollowed );
         $stmt->execute();

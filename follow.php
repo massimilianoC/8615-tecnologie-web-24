@@ -27,4 +27,4 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     }
 }
 
-//header('Location: index.php?page=users');
+header('Location: index.php?page=users');
