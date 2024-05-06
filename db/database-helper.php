@@ -63,6 +63,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getPostByPostId($id){
+        $query = "SELECT * FROM posts WHERE idPOST=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     public function getPostsByUserId($id){
         $query = "SELECT * FROM posts WHERE  isComment = 0 AND fkUser=? ORDER BY dataInserimento DESC";
         $stmt = $this->db->prepare($query);
