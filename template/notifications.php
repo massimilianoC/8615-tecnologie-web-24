@@ -12,7 +12,7 @@
             <?php if($notification['read'] > 0) echo ' read ' ?>  
             <?php echo (($notification['fkPost']!= NULL)? ' list-group-item-info ' : ' list-group-item-warning ') ?>"  role="alert">
               <?php if($notification['fkFollow']!= NULL): ?>
-                <?php $follower = $dbh->getUserByUserId($notification['fkFollower']);?>
+                <?php $follower = $dbh->getFollowerByFollowId($notification['fkFollow']);?>
                 <span><i class="bi bi-person-add"></i> <a href="index.php?page=userprofile&iduser=<?php echo $follower['idUSER']?>"><strong><?php echo $follower['nome'].' '.$follower['cognome']  ?></strong></a> ha iniziato a seguirti</span>
               <?php elseif($notification['fkPost']!= NULL): ?>
                 <?php $user = $dbh->getUserByPostId($notification['fkPost']);?>

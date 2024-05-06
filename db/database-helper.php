@@ -26,6 +26,18 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    public function getFollowerByFollowId($id){
+        $query = "select u.* from users u
+        left join followers f on  u.idUSER = f.fkFollower 
+        where f.idFOLLOWER  =  ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     public function getUserByPostId($id){
         $query = "SELECT u.* FROM users u, posts p WHERE p.idPOST=? and p.fkUser=u.idUSER";
         $stmt = $this->db->prepare($query);
@@ -60,8 +72,6 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
-
 
     public function getFollowersByUserId($id){
         $query = "select u.* from users u
