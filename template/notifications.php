@@ -15,7 +15,7 @@
               <?php elseif($notification['fkPost']!= NULL): ?>
                 <?php $post = $dbh->getPostByPostId($notification['fkPost']);?>
                 <?php $user = $dbh->getUserByPostId($notification['fkPost']);?>
-                <li class="list-group-item alert alert-warning alert-dismissible fade show <?php if($post['read'] > 0) echo ' read' ; echo (($post['isComment']==0)? ' list-group-item-info ' : ' list-group-item-primary ') ?>"  role="alert">
+                <li class="list-group-item alert alert-warning alert-dismissible fade show <?php if($notification['read'] > 0) echo ' read' ; echo ($post['isComment']==0)? ' list-group-item-info ' : ' list-group-item-primary ' ?>"  role="alert">
                   <?php if($post['isComment']==0): ?>
                     <span><i class="bi bi-file-post"></i><a href="index.php?page=userprofile&iduser=<?php echo $user['idUSER']?>"><strong><?php echo $user['nome'].' '.$user['cognome']  ?></strong>
                     </a> ha pubblicato un <a href="#">post</a></span>
