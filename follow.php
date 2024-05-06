@@ -15,7 +15,7 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
         $dbh->updateFollower($_POST["doFollow"],$_POST['fkFollower'],$_POST['fkFollowed']);
     }else{
         //INSERT
-        $iid = $dbh->insertFollower($_POST['fkFollower'],$_POST['Followed']);
+        $iid = $dbh->insertFollower($_POST['fkFollower'],$_POST['fkFollowed']);
         if($_POST["doFollow"]==1){
             $dbh->insertNotification($_POST['fkFollowed'],0,$iid);
         }
