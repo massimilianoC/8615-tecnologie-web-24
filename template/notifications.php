@@ -22,6 +22,12 @@
             </li>
           </ul>
         <?php endforeach; ?>
+        <?php if(count($_SESSION['template']["notifications"])==0): ?>
+          <ul class="list-group">
+          <li class="list-group-item alert alert-warning alert-dismissible fade show">
+            Nessuna nuova notifica da mostrare
+          </li> 
+        <?php endif;?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>

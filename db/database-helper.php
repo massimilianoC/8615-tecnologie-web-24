@@ -160,21 +160,26 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
 
-    public function updateFollower( $dataUnfollow, $fkFollower, $fkFollowed){
-        $query = "UPDATE followers SET dataUnfollow = ? WHERE fkFollower = ? AND fkFollowed = ?";
+    public function updateFollower( $isAccepted, $fkFollower, $fkFollowed){
+        $query = "UPDATE followers SET isAccepted = ? WHERE fkFollower = ? AND fkFollowed = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sii',$dataUnfollow, $fkFollower, $fkFollowed);
+        $stmt->bind_param('sii',$isAccepted, $fkFollower, $fkFollowed);
         $stmt->execute();
         
         return $stmt->insert_id;
     }
 
     public function insertNotification($fkUser, $fkPost, $fkFollow ){
-        $query = "INSERT INTO notifications ( fkUser, fkPost, fkFollow ) VALUES (?, ?, ?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii',$fkUser, $fkPost, $fkFollow);
+        if($fkPost==0){
+            $query = "INSERT INTO notifications (fkUser, fkFollow ) VALUES (?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ii',$fkUser, $fkFollow);
+        } else if($fkFollow==0){
+            $query = "INSERT INTO notifications (fkUser, fkPost ) VALUES (?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ii',$fkUser, $fkPost);  
+        }
         $stmt->execute();
-        
         return $stmt->insert_id;
     }
 
