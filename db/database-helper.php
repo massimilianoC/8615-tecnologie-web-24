@@ -63,8 +63,10 @@ class DatabaseHelper{
 
 
 
-    public function getFollowerByUserId($id){
-        $query = "SELECT u.* FROM users u, followers f WHERE f.fkFollowed=? and f.fkFollower=u.idUSER";
+    public function getFollowersByUserId($id){
+        $query = "select u.* from users u
+        left join followers f on  u.idUSER = f.fkFollower 
+        where f.fkFollowed  =  ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -74,7 +76,9 @@ class DatabaseHelper{
     }
 
     public function getFollowedByUserId($id){
-        $query = "SELECT u.* FROM users u, followers f WHERE f.fkFollower=? and f.fkFollowed=u.idUSER";
+        $query = "select u.* from users u
+        left join followers f on  u.idUSER = f.fkFollowed 
+        where f.fkFollower  =  ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
