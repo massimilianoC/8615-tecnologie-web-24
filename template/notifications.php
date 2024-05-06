@@ -17,12 +17,10 @@
                 <?php $user = $dbh->getUserByPostId($notification['fkPost']);?>
                 <li class="list-group-item alert alert-warning alert-dismissible fade show <?php if($notification['read'] > 0) echo ' read' ; echo ($post['isComment']==0)? ' list-group-item-info ' : ' list-group-item-primary ' ?>"  role="alert">
                   <?php if($post['isComment']==0): ?>
-                    <span><i class="bi bi-file-post"></i><a href="index.php?page=userprofile&iduser=<?php echo $user['idUSER']?>"><strong><?php echo $user['nome'].' '.$user['cognome']  ?></strong>
-                    </a> ha pubblicato un <a href="#">post</a></span>
+                    <span><i class="bi bi-file-post"></i><a href="index.php?page=userprofile&iduser=<?php echo $user['idUSER']?>"><strong><?php echo $user['nome'].' '.$user['cognome'] ?></strong></a> ha pubblicato un <a href="#">post</a></span>
                   <?php else: ?>
-                    <span><i class="bi bi-chat-dots-fill"></i> <a href="index.php?page=userprofile&iduser=<?php echo $user['idUSER']?>"><strong><?php echo $user['nome'].' '.$user['cognome']  ?></strong>
-                    <?php $parent = $dbh->getPostByPostId($post['fkParent']);?>
-                    </a> ha commentato un <a href="#?modalpostid=<?php echo $post['fkParent'] ?>"><?php if($parent["fkUser"]==$_SESSION["user"]['idUSER']) echo 'tuo post'; else echo 'post di '.$dbh->getUserByUserId($parent["fkUser"])['nome'] ?></a></span>
+                    <span><i class="bi bi-chat-dots-fill"></i> <a href="index.php?page=userprofile&iduser=<?php echo $user['idUSER']?>"><strong><?php echo $user['nome'].' '.$user['cognome']  ?></strong><?php $parent = $dbh->getPostByPostId($post['fkParent']);?>
+                  </a> ha commentato un <a href="index.php?page=home&modalpostid=<?php echo $post['fkParent'] ?>"><?php if($parent["fkUser"]==$_SESSION["user"]['idUSER']) echo 'tuo post'; else echo 'post di '.$dbh->getUserByUserId($parent["fkUser"])['nome'] ?></a></span>
                   <?php endif; ?>
                 <?php endif; ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
