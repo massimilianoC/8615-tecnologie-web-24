@@ -9,11 +9,9 @@
         <!-- $_SESSION['template']["notifications"] -->
         <?php foreach($_SESSION['template']["notifications"] as $post) : ?>
           <ul class="list-group">
-            <li class="list-group-item">
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <li class="list-group-item alert alert-warning alert-dismissible fade show" role="alert">
               <strong>Holy guacamole!</strong> You should check in on some of those fields below.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
             </li>
           </ul>
         <?php endforeach; ?>
