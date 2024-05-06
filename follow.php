@@ -10,7 +10,8 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
         var_dump($user);  
         echo'<br />';
         echo'<br />';
-        if($user['idUSER']==$_POST['fkFollowed']){
+        if($user['idUSER']==intval($_POST['fkFollowed'])){
+            echo'update';
             $doUpdate = 1;
         }
     }
