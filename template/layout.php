@@ -11,7 +11,7 @@
     <script src="javascript/functions.js"></script> 
 </head>
 <body>
-    <header class="sticky-top">
+    <header class="sticky-top shadow">
     <?php
         require("template/navigation.php"); 
     ?>
