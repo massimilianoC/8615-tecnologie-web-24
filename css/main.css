@@ -1,5 +1,6 @@
 main{
     max-width: 400px;
+    padding: 5px;
 }
 
 .shadow{
@@ -8,7 +9,6 @@ main{
 
 section.posts.collection {
     background-color: #fcfcfc;
-    padding: 5px;
 }
 
 img.post-element.image.source{
