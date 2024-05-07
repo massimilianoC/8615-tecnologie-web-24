@@ -35,8 +35,8 @@ function loadUserData($idUser){
    //selected user data
    $_SESSION['template']["userProfile"] = $selectedUser;
    $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
-   $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($_SESSION["user"]["idUSER"] );
-   $_SESSION["template"]["followers"] = $dbh->getActiveFollowersByUserId($_SESSION["user"]["idUSER"] );
+   $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($selectedUser["idUSER"] );
+   $_SESSION["template"]["followers"] = $dbh->getActiveFollowersByUserId($selectedUser["idUSER"] );
 
    $_SESSION['template']["titolo"] = "Profilo ".$selectedUser["nome"].' '.$selectedUser["cognome"];
    $_SESSION['template']["nome"] = "userProfile.php";
