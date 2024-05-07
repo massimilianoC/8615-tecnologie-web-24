@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php?page=home"><i class="bi bi-chat-left-quote-fill"></i> Social Share</a>
-
+    <?php if(isUserLoggedIn()) : ?>
+      <button class="d-none d-sm-none d-sm-block d-md-block d-lg-none btn btn-primary position-relative" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <i class="bi bi-bell-fill"></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><?php echo count($_SESSION['template']["notifications"]);?></span>
+      </button>
+    <?php endif; ?>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
