@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addCommentButtons.forEach(button => {
         button.addEventListener("mousedown", 
             function (){
-                showComments(button.getAttribute("postid"));
+                toggleComments(button.getAttribute("postid"))
                 showAddCommentForm(button.getAttribute("postid"))
             });
     });
