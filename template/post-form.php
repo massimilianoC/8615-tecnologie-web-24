@@ -1,6 +1,6 @@
 <form id="form-post" method="post" action="new-post.php" enctype="multipart/form-data">
 <ul class="form post">
-    <li class="post post-single-item">
+    <li class="post post-single-item shadow">
         <ul class="collection posts detail">
             <?php if($_SESSION["user"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$_SESSION["user"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
             <li class="post-element header">

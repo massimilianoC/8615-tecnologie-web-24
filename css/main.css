@@ -2,6 +2,10 @@ main{
     max-width: 400px;
 }
 
+.shadow{
+    box-shadow: 0px 2px 5px #cccccc;
+}
+
 section.posts.collection {
     background-color: #fcfcfc;
     padding: 5px;

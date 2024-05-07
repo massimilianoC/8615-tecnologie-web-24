@@ -4,7 +4,7 @@
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
         <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
 <!-- POST SINGLE ITEM TEMPLATE -->
-                <li class="post post-single-item">
+                <li class="post post-single-item shadow">
                     <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
