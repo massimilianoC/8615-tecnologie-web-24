@@ -9,7 +9,6 @@
     ?>
     <hr/>
     <section class="posts collection">
-    <h4>Bacheca</h4>
         <?php
             if($_SESSION["user"]["idUSER"]==$_SESSION['template']["userProfile"]["idUSER"])
             {
