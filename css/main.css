@@ -69,7 +69,7 @@ li.post.post-single-item{
     margin-bottom: 15px;
 }
 
-form#form-post li.post, li.post.comment-form{
+form#form-post li.post, li.post.comment-form ul{
     border: solid 1.5px #3700ff;
 }
 
