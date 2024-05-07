@@ -12,7 +12,7 @@
                 <label class="form-label"  for="email">Email:</label><input class="form-control" type="text" id="email" name="email" aria-describedby="emailHelp" />
             </li>
             <li class="list-group-item">
-                <label class="form-label"  for="password">Password:</label><inputclass="form-control"  type="password" id="password" name="password" />
+                <label class="form-label"  for="password">Password:</label><input class="form-control"  type="password" id="password" name="password" />
             </li>
             <li class="list-group-item">
                 <button  type="submit" name="submit" class="btn btn-primary">Registrati</button>
