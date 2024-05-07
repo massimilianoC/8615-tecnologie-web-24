@@ -71,6 +71,7 @@ li.post.post-single-item{
 
 form#form-post li.post, li.post.comment-form ul{
     border: solid 1.5px #3700ff;
+    background-color: #f8f8f8;
 }
 
 li.post.post-single-item button{
