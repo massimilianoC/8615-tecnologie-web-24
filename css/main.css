@@ -69,6 +69,10 @@ li.post.post-single-item{
     margin-bottom: 15px;
 }
 
+form#form-post li.post, li.post.comment-form{
+    border: solid 1.5px #3700ff;
+}
+
 li.post.post-single-item button{
     max-width: 150px;
 }

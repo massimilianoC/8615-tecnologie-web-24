@@ -29,13 +29,13 @@
 <!-- ADD COMMENT FORM -->                                
                             <li class="post comment-form hidden" id="add-comment-form-<?php echo $post["idPOST"]; ?>">
                                 <ul class="collection posts detail">
-                                    <form id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
+                                    <form class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
                                         <?php if($_SESSION["user"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$_SESSION["user"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                                         <li class="post-element header">
                                             <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
                                             <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
                                         </li>
-                                        <li class="post-element input text"><textarea placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="5"></textarea></li>
+                                        <li class="post-element input text"><textarea placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="2"></textarea></li>
                                         <li class="hidden form input"><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" /></li>
                                         <li class="hidden form input"><input type="number" id="isComment" name="isComment" value=1 /></li>
                                         <li class="hidden form input"><input type="number" id="fkParent" name="fkParent" value=<?php echo $post["idPOST"]; ?> /></li>
