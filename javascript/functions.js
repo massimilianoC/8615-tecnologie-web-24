@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             hideComments(postId);
         }
+        //hide comment form
+        let form = document.querySelector("#add-comment-form-"+postId);
+        form.setAttribute("class","post comment-form hidden");
     }
 
     function showComments(postId) {
@@ -41,8 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function hideComments(postId) {
         let section = document.querySelector("#comment-section-"+postId);
         section.setAttribute("class","comments hidden");
-        let form = document.querySelector("#add-comment-form-"+postId);
-        form.setAttribute("class","post comment-form hidden");
     }
 
     function showAddCommentForm(postId){
