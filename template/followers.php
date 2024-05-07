@@ -1,16 +1,9 @@
-<section class="followers">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+<section class="followers d-flex">
+<div class="dropdown flex-fill">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   Followers
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-    <h4></h4>
-    <ul class="dropdown-menu">
         <?php foreach($_SESSION['template']["followers"] as $utente): ?>
             <li class="user list item ">
                 <a class="dropdown-item" href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>">
@@ -20,9 +13,9 @@
             </li>
         <?php endforeach; ?>
     </ul>
-</section>
-<section class="following">
-<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+</div>
+<div class="dropdown flex-fill">
+<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   Following
   </button>
     <ul class="dropdown-menu">
@@ -35,4 +28,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
+</div>
 </section>
