@@ -1,4 +1,4 @@
-<section>
+<section class="form" id="registration-form">
     <form action="register.php" method="POST">
         <h2>Registration</h2>
         <ul class="list-group">
@@ -15,7 +15,7 @@
                 <label class="form-label"  for="password">Password:</label><input class="form-control"  type="password" id="password" name="password" />
             </li>
             <li class="list-group-item">
-                <button  type="submit" name="submit" class="btn btn-primary">Registrati</button>
+                <button  type="submit" name="submit" class="btn btn-primary float-end">Registrati</button>
             </li>
         </ul>
     </form>

@@ -4,6 +4,7 @@ main{
 
 section.posts.collection {
     background-color: #fcfcfc;
+    padding: 5px;
 }
 
 img.post-element.image.source{
