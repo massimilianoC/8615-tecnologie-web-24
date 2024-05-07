@@ -5,6 +5,7 @@ if(isUserLoggedIn()){
     //global user-data
     $_SESSION['template']["users"] = $dbh->getUsers();
     $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
+    
     //switch template
     if(isset($_GET["page"])){
         switch($_GET["page"]){

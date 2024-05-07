@@ -1,20 +1,20 @@
 <form action="register.php" method="POST">
     <h2>Registration</h2>
-    <ul>
-        <li>
-            <label for="nome">Nome:</label><input type="text" id="nome" name="nome" />
+    <ul class="list-group">
+        <li class="list-group-item">
+            <label class="form-label" class="form-control" for="nome">Nome:</label><input type="text" id="nome" name="nome" />
         </li>
-        <li>
-            <label for="cognome">Cognome:</label><input type="text" id="cognome" name="cognome" />
+        <li class="list-group-item">
+            <label class="form-label" class="form-control" for="cognome">Cognome:</label><input type="text" id="cognome" name="cognome" />
         </li>
-        <li>
-            <label for="email">Email:</label><input type="text" id="email" name="email" />
+        <li class="list-group-item">
+            <label class="form-label" class="form-control" for="email">Email:</label><input type="text" id="email" name="email" aria-describedby="emailHelp" />
         </li>
-        <li>
-            <label for="password">Password:</label><input type="password" id="password" name="password" />
+        <li class="list-group-item">
+            <label class="form-label" class="form-control" for="password">Password:</label><input type="password" id="password" name="password" />
         </li>
-        <li>
-            <input type="submit" name="submit" value="Invia" />
+        <li class="list-group-item">
+            <button  type="submit" name="submit" class="btn btn-primary">Registrati</button>
         </li>
     </ul>
 </form>
