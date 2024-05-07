@@ -2,10 +2,8 @@
 require_once 'bootstrap.php';
 
 if(isUserLoggedIn()){
-    //global user-data
-    $_SESSION['template']["users"] = $dbh->getUsers();
-    $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
-    
+    loadSessionUserData();
+
     //switch template
     if(isset($_GET["page"])){
         switch($_GET["page"]){
@@ -13,18 +11,18 @@ if(isUserLoggedIn()){
                 logOut();
                 break;
             case 'userprofile': 
-                loadUserData($_GET["iduser"]);
+                profilePage($_GET["iduser"]);
                 break;
             case 'users': 
-                loadUsers();
+                usersPage();
                 break;
             case 'home':
             default:
-                loadHome();
+                homePage();
                 break;
         }
     } else{
-        loadHome();
+        homePage();
     }
 }else{
     if(isset($_GET["page"])){

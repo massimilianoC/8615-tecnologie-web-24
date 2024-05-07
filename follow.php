@@ -1,17 +1,10 @@
 <?php
 require_once 'bootstrap.php';
-var_dump($_POST);  
-echo'<br />';
-echo'<br />';
 if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     $doUpdate = 0;
     $followed = $dbh->getAllFollowed($_POST['fkFollower']);
     foreach ($followed as $user) {  
-        var_dump($user);  
-        echo'<br />';
-        echo'<br />';
         if($user['idUSER']==intval($_POST['fkFollowed'])){
-            echo'update';
             $doUpdate = 1;
         }
     }

@@ -39,6 +39,13 @@ function registerLoggedUser($user){
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 }
 
+function loadSessionUserData(){
+    $dbh = new DatabaseHelper(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
+    //global user-data
+    $_SESSION['template']["users"] = $dbh->getUsers();
+    $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
+}
+
 function checkPassword($pwd, $errors) {
 
     if (strlen($pwd) < 8) {

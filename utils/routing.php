@@ -10,16 +10,16 @@ function registerPage(){
     $_SESSION['template']["nome"] = "registration-form.php";
 }
 
-function loadHome(){
-   $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
+function homePage(){
+    $dbh = new DatabaseHelper(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
    //Home
    $_SESSION['template']["titolo"] = "Home";
    $_SESSION['template']["nome"] = "home.php";
    $_SESSION['template']["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
 }
 
-function loadUsers(){
-    $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
+function usersPage(){
+    $dbh = new DatabaseHelper(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
     
     //Follower/Following
     $_SESSION['template']["titolo"] = "Users";
@@ -27,17 +27,17 @@ function loadUsers(){
     $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($_SESSION["user"]["idUSER"] );
  }
 
-function loadUserData($idUser){
-   $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
+function profilePage($idUser){
+    $dbh = new DatabaseHelper(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
    
-   $selectedUser = $dbh->getUserByUserId($idUser);
+    $selectedUser = $dbh->getUserByUserId($idUser);
 
-   //selected user data
-   $_SESSION['template']["userProfile"] = $selectedUser;
-   $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
-   $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($selectedUser["idUSER"] );
-   $_SESSION["template"]["followers"] = $dbh->getActiveFollowersByUserId($selectedUser["idUSER"] );
+    //selected user data
+    $_SESSION['template']["userProfile"] = $selectedUser;
+    $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
+    $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($selectedUser["idUSER"] );
+    $_SESSION["template"]["followers"] = $dbh->getActiveFollowersByUserId($selectedUser["idUSER"] );
 
-   $_SESSION['template']["titolo"] = "Profilo ".$selectedUser["nome"].' '.$selectedUser["cognome"];
-   $_SESSION['template']["nome"] = "userProfile.php";
+    $_SESSION['template']["titolo"] = "Profilo ".$selectedUser["nome"].' '.$selectedUser["cognome"];
+    $_SESSION['template']["nome"] = "userProfile.php";
 }
