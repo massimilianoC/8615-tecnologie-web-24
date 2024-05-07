@@ -30,12 +30,14 @@ function loadUsers(){
 function loadUserData($idUser){
    $dbh = new DatabaseHelper("localhost", "root", "", "tecnologieweb2024", 3306);
    
-   $_SESSION['template']["titolo"] = "Profilo Utente";
-   $_SESSION['template']["nome"] = "userProfile.php";
+   $selectedUser = $dbh->getUserByUserId($idUser);
 
    //selected user data
-   $_SESSION['template']["userProfile"] = $dbh->getUserByUserId($idUser);
+   $_SESSION['template']["userProfile"] = $selectedUser;
    $_SESSION['template']["posts"] = $dbh->getPostsByUserId($idUser);
    $_SESSION["template"]["following"] = $dbh->getActiveFollowedByUserId($_SESSION["user"]["idUSER"] );
-   $_SESSION["template"]["follower"] = $dbh->getActiveFollowersByUserId($_SESSION["user"]["idUSER"] );
+   $_SESSION["template"]["followers"] = $dbh->getActiveFollowersByUserId($_SESSION["user"]["idUSER"] );
+
+   $_SESSION['template']["titolo"] = "Profilo ".$selectedUser["nome"].' '.$selectedUser["cognome"];
+   $_SESSION['template']["nome"] = "userProfile.php";
 }

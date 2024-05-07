@@ -1,5 +1,5 @@
 <section class="followers">
-    <h3>Followers</h3>
+    <h4>Followers</h4>
     <ul class="list-group">
         <?php foreach($_SESSION['template']["followers"] as $utente): ?>
             <li class="list-group-item d-flex justify-content-between align-items-center user list item">
@@ -12,7 +12,7 @@
     </ul>
 </section>
 <section class="following">
-    <h3>Following</h3>
+    <h4>Following</h4>
     <ul class="list-group">
         <?php foreach($_SESSION['template']["following"] as $utente): ?>
             <li class="list-group-item d-flex justify-content-between align-items-center user list item">
