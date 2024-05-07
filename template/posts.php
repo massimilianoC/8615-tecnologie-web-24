@@ -19,7 +19,7 @@
                             </li>
                         <?php endif; ?>
                         <li class="post-element function buttons">
-                            <button id="show-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-secondary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <?php if(count($postComments)>0){ echo " (".count($postComments).")";} ?></button>
+                            <button id="show-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-secondary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <span class="badge rounded-pill text-bg-primary"><?php if(count($postComments)>0){ echo count($postComments);} ?></span></button>
                             <button id="add-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-primary add-comment button">Commenta...</button></li>
                         <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="post del: <?php echo $post["dataInserimento"]; ?>"></i></li>
                     </ul>
