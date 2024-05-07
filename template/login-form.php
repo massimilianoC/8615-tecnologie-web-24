@@ -16,5 +16,9 @@
 </section>
 <hr />
 <section>
-    <a href="index.php?page=register"><button class="btn btn-secondary">Registrati</button></a>
+<ul class="list-group">
+    <li class="list-group-item" >
+        <a href="index.php?page=register"><button class="btn btn-secondary">Registrati</button></a>
+    </li>
+</ul>
 </section>
