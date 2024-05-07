@@ -21,7 +21,7 @@
                         <li class="post-element function buttons">
                             <button id="show-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-secondary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <?php if(count($postComments)>0){ echo " (".count($postComments).")";} ?></button>
                             <button id="add-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-primary add-comment button">Commenta...</button></li>
-                        <li class="post-element timestamp">post del: <?php echo $post["dataInserimento"]; ?></li>
+                        <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="post del: <?php echo $post["dataInserimento"]; ?>"></i></li>
                     </ul>
 <!-- COMMENTS SECTION -->
                         <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
@@ -61,7 +61,7 @@
                                                         <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>')" alt="" />
                                                     </li>
                                                 <?php endif; ?>
-                                                <li class="post-element timestamp">commento del: <?php echo $comment["dataInserimento"]; ?></li>
+                                                <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="commento del: <?php echo $comment["dataInserimento"]; ?>"></i></li>
                                             </ul>
                                         </li>       
                             <?php endforeach; ?>

@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     const input = document.querySelector("input.upload.post.media.button");
     const preview = document.querySelector("li.post-element.preview.input.media div");
     if(input!=null)
