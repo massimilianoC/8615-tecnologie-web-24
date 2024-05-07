@@ -1,8 +1,8 @@
 <section class="followers">
     <h4>Followers</h4>
-    <ul class="list-group list-group-horizontal">
+    <ul class="list-group list-group-horizontal d-flex flex-wrap">
         <?php foreach($_SESSION['template']["followers"] as $utente): ?>
-            <li class="list-group-item">
+            <li class="list-group-item user list item flex-fill">
                 <a href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>">
                 <?php if($utente["imageUrl"]!="") $userImg = UPLOAD_DIR.$utente["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                 <span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
@@ -13,9 +13,9 @@
 </section>
 <section class="following">
     <h4>Following</h4>
-    <ul class="list-group list-group-horizontal">
+    <ul class="list-group list-group-horizontal d-flex flex-wrap">
         <?php foreach($_SESSION['template']["following"] as $utente): ?>
-            <li class="list-group-item">
+            <li class="list-group-item user list item flex-fill">
                 <a href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>">
                 <?php if($utente["imageUrl"]!="") $userImg = UPLOAD_DIR.$utente["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                 <span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
