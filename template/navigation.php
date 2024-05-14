@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php?page=home"><i class="bi bi-chat-left-quote-fill"></i> Social Share</a>
     <?php if(isUserLoggedIn()) : ?>
-      <?php var_dump($template_data); ?>
       <button class="d-none d-sm-block d-md-block d-lg-none btn btn-primary position-relative" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       <i class="bi bi-bell-fill"></i><span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"><?php echo count($template_data["notifications"]);?></span>
       </button>

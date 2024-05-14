@@ -1,4 +1,3 @@
-<?php var_dump($template_data); ?>
 <section class="user-profile">
     <section class="identity">
             <?php if($template_data["userProfile"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$template_data["userProfile"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
