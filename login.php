@@ -10,6 +10,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     if(count($login_result)==0){
         $template_data["errorelogin"] = "Errore! Controllare email o password!";
+        require 'template/base-layout.php';
     }
     else{
         $user = $login_result[0];
@@ -22,8 +23,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         }
         else {
             $template_data["errorelogin"] = "Hai dimenticato la password?";
+            require 'template/base-layout.php';
         }
     }
 }
 
-require 'template/base-layout.php';
