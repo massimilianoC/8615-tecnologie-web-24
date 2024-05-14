@@ -21,7 +21,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $pwd_hashed = $user["password"];
         if (password_verify($pwd_peppered, $pwd_hashed)) {
             registerLoggedUser($user);
-            $routePage = "home";
+            header('Location: index.php?page=home');
         }
         else {
             $template_data["errorelogin"] = "Hai dimenticato la password?";
