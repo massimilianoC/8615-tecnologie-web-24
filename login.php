@@ -3,6 +3,7 @@ require_once 'bootstrap.php';
 
 $template_data["titolo"] = "Login";
 $template_data["nome"] = "login-form.php";
+$routing = 'login';
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
     $plainPassword = $_POST["password"];
@@ -11,7 +12,6 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     if(count($login_result)==0){
         //Login fallito
         $template_data["errorelogin"] = "Errore! Controllare email o password!";
-        header('Location: index.php?page=login');
     }
     else{
         $user = $login_result[0];
@@ -21,12 +21,14 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $pwd_hashed = $user["password"];
         if (password_verify($pwd_peppered, $pwd_hashed)) {
             registerLoggedUser($user);
-            header('Location: index.php?page=home');
+            $routing = 'home';
         }
         else {
             $template_data["errorelogin"] = "Hai dimenticato la password?";
         }
     }
 }
+
+header('Location: index.php?page='.$routing);
 
 
