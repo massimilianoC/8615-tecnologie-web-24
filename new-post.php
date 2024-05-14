@@ -27,4 +27,4 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     }
 }
 
-header('Location: index.php');
+require 'template/base-layout.php';

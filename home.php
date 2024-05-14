@@ -6,3 +6,5 @@ $template_data["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user
 $template_data["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSER']);
 $template_data["titolo"] = "Home";
 $template_data["nome"] = "home-page.php";
+
+require 'template/base-layout.php';

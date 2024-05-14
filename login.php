@@ -29,4 +29,4 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     }
 }
 
-header('Location: index.php?page='.$routePage);
+require 'template/base-layout.php';
