@@ -30,7 +30,7 @@
     <aside class="d-none d-lg-block">
         
     </aside>
-    <footer class="sticky-bottom">
+    <footer class="fixed-bottom">
         <?php
             require("template/footer.php"); 
         ?>
