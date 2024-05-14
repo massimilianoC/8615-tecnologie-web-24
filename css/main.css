@@ -140,3 +140,7 @@ li.text {
 .hidden{
     display: none !important;
 }
+
+.identity .user.name {
+    text-align: center;
+}
