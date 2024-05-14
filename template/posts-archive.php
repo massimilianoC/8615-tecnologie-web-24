@@ -1,6 +1,6 @@
 <ul class="collection posts">
 <!-- POSTS COLLECTION --> 
-    <?php foreach($_SESSION['template']["posts"] as $post) : ?>
+    <?php foreach($template_data["posts"] as $post) : ?>
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
         <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
 <!-- POST SINGLE ITEM TEMPLATE -->

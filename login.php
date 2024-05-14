@@ -1,13 +1,17 @@
 <?php
 require_once 'bootstrap.php';
+
+$template_data["titolo"] = "Login";
+$template_data["nome"] = "login-form.php";
 $routePage = "login";
+
 if(isset($_POST["email"]) && isset($_POST["password"])){
     $plainPassword = $_POST["password"];
     $login_result = $dbh->getUserByEmail($_POST["email"]);
 
     if(count($login_result)==0){
         //Login fallito
-        $_SESSION['template']["errorelogin"] = "Errore! Controllare email o password!";
+        $template_data["errorelogin"] = "Errore! Controllare email o password!";
     }
     else{
         $user = $login_result[0];
@@ -16,12 +20,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
         $pwd_hashed = $user["password"];
         if (password_verify($pwd_peppered, $pwd_hashed)) {
-            //echo "Password matches.";
             registerLoggedUser($user);
             $routePage = "home";
         }
         else {
-            $_SESSION['template']["errorelogin"] = "Hai dimenticato la password?";
+            $template_data["errorelogin"] = "Hai dimenticato la password?";
         }
     }
 }

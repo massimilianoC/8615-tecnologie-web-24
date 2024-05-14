@@ -1,6 +1,9 @@
 <?php
 require_once 'bootstrap.php';
 
+$template_data["titolo"] = "Register";
+$template_data["nome"] = "registration-form.php";
+
 if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) && isset($_POST["cognome"])){
         $pwd = $_POST['password'];
         $email = $_POST['email'];
@@ -13,15 +16,15 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
                 $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
                 $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
                 $dbh->insertUser($nome, $cognome,$email, $pwd_hashed);
-                $_SESSION['template']["titolo"] = "Login";
-                $_SESSION['template']["nome"] = "login-form.php";
+                $template_data["titolo"] = "Login";
+                $template_data["nome"] = "login-form.php";
             } else {
-                $_SESSION['template']["erroreRegistrazione"] = $errors;
+                $template_data["erroreRegistrazione"] = $errors;
             }
          } else {
-            $_SESSION['template']["erroreRegistrazione"] = "Email già registrata!";
+            $template_data["erroreRegistrazione"] = "Email già registrata!";
          }
 } 
 
-require 'template/layout.php';
+require 'template/base-layout.php';
 

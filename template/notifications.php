@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <?php foreach($_SESSION['template']["notifications"] as $notification) : ?>
+        <?php foreach($template_data["notifications"] as $notification) : ?>
           <ul class="list-group">
               <?php if($notification['fkFollow']!= NULL): ?>
                 <?php $follower = $dbh->getFollowerByFollowId($notification['fkFollow']);?>
@@ -28,7 +28,7 @@
               </li>
           </ul>
         <?php endforeach; ?>
-        <?php if(count($_SESSION['template']["notifications"])==0): ?>
+        <?php if(count($template_data["notifications"])==0): ?>
           <ul class="list-group">
           <li class="list-group-item alert alert-warning alert-dismissible fade show">
             Nessuna nuova notifica da mostrare

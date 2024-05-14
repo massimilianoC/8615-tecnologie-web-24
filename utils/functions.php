@@ -13,7 +13,7 @@ function isUserLoggedIn(){
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
             // last request was more than 30 minutes ago
             killSession();
-            $_SESSION['template']["errorelogin"] = "Sessione scaduta!";
+            $template_data["errorelogin"] = "Sessione scaduta!";
             return false;
         }
         return true;
@@ -25,11 +25,6 @@ function killSession(){
      session_destroy();   // destroy session data in storage
 }
 
-function logOut(){
-    killSession();
-    header('Location: index.php?page=login');
-}
-
 function randomNumbers($digits = 3){
     return rand(pow(10, $digits-1), pow(10, $digits)-1);
 }
@@ -37,13 +32,6 @@ function randomNumbers($digits = 3){
 function registerLoggedUser($user){
     $_SESSION["user"] = $user;
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-}
-
-function loadSessionUserData(){
-    $dbh = new DatabaseHelper(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
-    //global user-data
-    $_SESSION['template']["users"] = $dbh->getUsers();
-    $_SESSION['template']["notifications"] = $dbh->getNotificationsByUserId($_SESSION['user']['idUSER']); 
 }
 
 function checkPassword($pwd, $errors) {

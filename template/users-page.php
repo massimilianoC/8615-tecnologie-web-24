@@ -1,7 +1,7 @@
 <section>
     <h2>Utenti</h2>
     <ul class="list-group">
-        <?php foreach($_SESSION['template']["users"] as $utente): ?>
+        <?php foreach($template_data["users"] as $utente): ?>
             <li class="list-group-item d-flex justify-content-between align-items-center user list item">
                 <a href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>">
                 <?php if($utente["imageUrl"]!="") $userImg = UPLOAD_DIR.$utente["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
@@ -10,7 +10,7 @@
                 <?php $mySelf = $_SESSION['user']['idUSER'] ==  $utente["idUSER"] ? 1:0; ?>
                 <?php if($mySelf ==0) : ?>
                     <?php $amIFollowing = 0; ?>
-                    <?php foreach($_SESSION['template']["following"] as $followed): ?>
+                    <?php foreach($template_data["following"] as $followed): ?>
                         <?php if($utente["idUSER"]==$followed["idUSER"]) $amIFollowing = 1 ?>
                     <?php endforeach; ?>
                         <form id="follow-<?php echo $_SESSION['user']['idUSER'] ?>-<?php echo $utente["idUSER"]  ?> " action="follow.php" method="POST">

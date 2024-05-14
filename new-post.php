@@ -1,5 +1,6 @@
 <?php
 require_once 'bootstrap.php';
+
 if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]) && isset($_POST["fkParent"])){
     $text = $_POST['text'];
     $isComment = $_POST['isComment'];

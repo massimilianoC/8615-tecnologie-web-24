@@ -3,6 +3,6 @@
         require("template/post-form.php"); 
     ?>
     <?php
-        require("template/posts.php"); 
+        require("template/posts-archive.php"); 
     ?>
 </section>
