@@ -11,4 +11,6 @@ require_once 'bootstrap.php';
         $template_data["followers"] = $dbh->getActiveFollowersByUserId($selectedUser["idUSER"] );
         $template_data["titolo"] = "Profilo ".$selectedUser["nome"].' '.$selectedUser["cognome"];
         $template_data["nome"] = "user-profile-page.php";
+
+        var_dump($template_data);
     }
