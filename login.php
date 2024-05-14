@@ -3,7 +3,6 @@ require_once 'bootstrap.php';
 
 $template_data["titolo"] = "Login";
 $template_data["nome"] = "login-form.php";
-$routePage = "login";
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
     $plainPassword = $_POST["password"];
@@ -12,6 +11,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     if(count($login_result)==0){
         //Login fallito
         $template_data["errorelogin"] = "Errore! Controllare email o password!";
+        header('Location: index.php?page=login');
     }
     else{
         $user = $login_result[0];
