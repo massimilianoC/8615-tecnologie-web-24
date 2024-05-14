@@ -12,5 +12,3 @@ require_once 'bootstrap.php';
         $template_data["titolo"] = "Profilo ".$selectedUser["nome"].' '.$selectedUser["cognome"];
         $template_data["nome"] = "user-profile-page.php";
     }
-
-    require 'template/base-layout.php';

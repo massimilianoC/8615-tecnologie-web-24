@@ -27,4 +27,3 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     }
 }
 
-require 'template/base-layout.php';

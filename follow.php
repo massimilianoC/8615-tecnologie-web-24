@@ -20,4 +20,3 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     }
 }
 
-require 'template/base-layout.php';

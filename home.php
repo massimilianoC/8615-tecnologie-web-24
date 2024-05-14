@@ -7,4 +7,3 @@ $template_data["posts"] = $dbh->getPostsVisibleToUserId($_SESSION['user']['idUSE
 $template_data["titolo"] = "Home";
 $template_data["nome"] = "home-page.php";
 
-require 'template/base-layout.php';

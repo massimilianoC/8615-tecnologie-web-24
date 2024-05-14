@@ -26,5 +26,5 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
          }
 } 
 
-require 'template/base-layout.php';
+
 
