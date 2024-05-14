@@ -16,7 +16,7 @@
             }
         ?>
         <?php
-            require("template/posts.php"); 
+            require("template/posts-archive.php"); 
         ?>
     </section>
 </section>
