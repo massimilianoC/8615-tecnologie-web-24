@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
             let buttonId = button.getAttribute("id");
             const formData = new FormData();
             formData.append('idNOTIFICATION', buttonId);
-            archiveAction(button,formData);
+            archiveAction(formData);
         });
     });
 
     function archiveAction(formData){
+        console.log(formData);
         axios.post('notify.php', formData).then(response => {
-            console.log(response.data);
             updateCounter(response.data);
         });
     }
