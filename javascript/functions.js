@@ -12,10 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     followButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
             //get form data
-            let formaData;
-            formData["idUser"] = "1";
-            formData["idFollower"] = "2";
-            formData["action"] = "0";
+            let formaData = {fkFollower:1, fkFollowed:2, action:0};
             followAction(formData);
         });
     });
