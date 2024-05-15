@@ -16,14 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('fkFollower', document.querySelector("input#fkFollower-"+buttonId).value);
             formData.append('fkFollowed',document.querySelector("input#fkFollowed-"+buttonId).value);
             formData.append('doFollow', document.querySelector("input#doAction-"+buttonId).value);
-            toggleFollowButton(button,followAction(formData));
+            followAction(button,formData);
         });
     });
 
-    function followAction(formData){
+    function followAction(button,formData){
         axios.post('follow.php', formData).then(response => {
-            console.log(response.data);
-            return response.data;
+            toggleFollowButton(button,response.data);
         });
     }
 
