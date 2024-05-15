@@ -27,18 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function toggleFollowButton(button, follow){
-        console.log(follow);
+    function toggleFollowButton(button, doFollow){
         let buttonId = button.getAttribute("id");
         let toggle = document.querySelector("input#doAction-"+buttonId)
-        if(follow==1){
+        if(doFollow==0){
             button.setAttribute("class","follow-button btn-sm btn btn-outline-primary");
             button.innerHTML = '<i class="bi bi-plus-circle"></i> Follow';
             toggle.setAttribute("value",0);
         } else {
             button.setAttribute("class","follow-button btn-sm btn btn-outline-secondary");
             button.innerHTML = '<i class="bi bi-x-circle"></i> Unfollow';
-            toggle.setAttribute("value",1);
+            toggle.setAttribute("value",0);
         }
     }
     
