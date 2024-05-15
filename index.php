@@ -1,5 +1,5 @@
 <?php
 require_once 'bootstrap.php';
-require 'notifications.php';
+require 'notify.php';
 require("utils/routing.php");
 require 'template/base-layout.php';

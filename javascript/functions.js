@@ -6,9 +6,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const showCommentButtons = document.querySelectorAll(".show-comment.button");
     const addCommentButtons = document.querySelectorAll(".add-comment.button");
     const followButtons= document.querySelectorAll("button.follow-button");
+    const archiveNotificationButtons = document.querySelectorAll("button.archive.notification");
 
     //AXIOS
     //NOTIFICATIONS
+    archiveNotificationButtons.forEach(button => {
+        button.addEventListener("mousedown", function (){
+            let buttonId = button.getAttribute("id");
+            const formData = new FormData();
+            formData.append('idNOTIFICATION', buttonId);
+            archiveAction(button,formData);
+        });
+    });
+
+    function archiveAction(formData){
+        axios.post('notify.php', formData).then(response => {
+            updateCounter(response.data);
+        });
+    }
+
+    function updateCounter(data){
+        document.querySelectorAll("span.notification-count").forEach(span => {
+            span.innerHTML = data;
+        })
+    }
+
+    //FOLLOWERS
     followButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
             let buttonId = button.getAttribute("id");

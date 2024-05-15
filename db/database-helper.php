@@ -152,7 +152,9 @@ class DatabaseHelper{
 
 
     public function getNotificationsByUserId($id){
-        $query = "SELECT * FROM notifications WHERE fkUser=?";
+        $query = "SELECT * FROM notifications 
+        WHERE fkUser=? AND dataArchiviazione is null 
+        ORDER BY dataInserimento desc";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -222,10 +224,16 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
 
-    public function updateNotification( $dataVisualizzazione, $dataArchiviazione, $emailSent, $read, $idNOTIFICATION){
-        $query = "UPDATE notifications SET dataVisualizzazione = ?, dataArchiviazione = ?, emailSent = ?, read = ? WHERE idNOTIFICATION = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssiii',$dataVisualizzazione, $dataArchiviazione, $emailSent, $read, $idNOTIFICATION);
+    public function updateNotification( $dataVisualizzazione, $dataArchiviazione, $read, $idNOTIFICATION){
+        if($dataArchiviazione==0){
+            $query = "UPDATE notifications SET dataVisualizzazione = ?,  emailSent = ?, read = ? WHERE idNOTIFICATION = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('siii',$dataVisualizzazione, $read, $idNOTIFICATION);
+        } else {
+            $query = "UPDATE notifications SET dataVisualizzazione = ?, dataArchiviazione = ?, emailSent = ?, read = ? WHERE idNOTIFICATION = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssiii',$dataVisualizzazione, $dataArchiviazione, $emailSent, $read, $idNOTIFICATION);
+        }
         
         return $stmt->execute();
     }
