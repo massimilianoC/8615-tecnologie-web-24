@@ -23,3 +23,5 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     }
 }
 
+echo $_POST;
+
