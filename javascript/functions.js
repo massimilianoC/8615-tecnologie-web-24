@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function followAction(button,formData){
         axios.post('follow.php', formData).then(response => {
-            console.log(response.data);
             toggleFollowButton(button,response.data);
         });
     }
