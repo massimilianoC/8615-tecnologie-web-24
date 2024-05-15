@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function archiveAction(formData){
         axios.post('notify.php', formData).then(response => {
+            console(response.data);
             updateCounter(response.data);
         });
     }
