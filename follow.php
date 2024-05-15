@@ -23,5 +23,5 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     }
 }
 
-echo $_POST;
+echo json_encode((array)$_POST);
 
