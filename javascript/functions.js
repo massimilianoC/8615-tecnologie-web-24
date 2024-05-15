@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function followAction(formData){
+        console.log(formData);
         axios.post('follow.php', formData).then(response => {
             console.log(response);
             if (response.data["result"]) {
