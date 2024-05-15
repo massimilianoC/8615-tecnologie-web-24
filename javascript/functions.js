@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     //NOTIFICATIONS
     followButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
-            //get form data
+            let buttonId = button.getAttribute("id")
             const formData = new FormData();
-            formData.append('fkFollower', 1);
-            formData.append('fkFollowed', 2);
-            formData.append('doFollow', 0);
+            formData.append('fkFollower', document.querySelector("input.fkFollower-"+buttonId).value);
+            formData.append('fkFollowed',document.querySelector("input.fkFollowed-"+buttonId).value);
+            formData.append('doFollow', document.querySelector("input.doFollow-"+buttonId).value);
             followAction(formData);
         });
     });
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(formData);
         axios.post('follow.php', formData).then(response => {
             console.log(response);
-            if (response.data["result"]) {
+            if (response.data["doFollow"]==1) {
                 //set follow state
                 console.log("following");
             } else {

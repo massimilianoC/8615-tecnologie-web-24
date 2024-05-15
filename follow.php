@@ -1,8 +1,5 @@
 <?php
 require_once 'bootstrap.php';
-
-var_dump($_POST);
-
 if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     $doUpdate = 0;
     $followed = $dbh->getAllFollowed($_POST['fkFollower']);
@@ -23,5 +20,5 @@ if(isset($_POST["fkFollower"]) && isset($_POST["fkFollowed"])){
     }
 }
 
-echo json_encode((array)$_POST);
+echo $_POST["fkFollower"];
 
