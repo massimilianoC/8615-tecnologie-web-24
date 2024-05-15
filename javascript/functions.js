@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(doFollow==0){
             button.setAttribute("class","follow-button btn-sm btn btn-outline-primary");
             button.innerHTML = '<i class="bi bi-plus-circle"></i> Follow';
-            toggle.setAttribute("value",0);
+            toggle.setAttribute("value",1);
         } else {
             button.setAttribute("class","follow-button btn-sm btn btn-outline-secondary");
             button.innerHTML = '<i class="bi bi-x-circle"></i> Unfollow';
