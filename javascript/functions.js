@@ -17,47 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('fkFollower', document.querySelector("input#fkFollower-"+buttonId).value);
             formData.append('fkFollowed',document.querySelector("input#fkFollowed-"+buttonId).value);
             formData.append('doFollow', document.querySelector("input#doAction-"+buttonId).value);
-            followAction(formData);
+            toggleFollowButton(followAction(formData));
         });
     });
 
     function followAction(formData){
         console.log(formData);
         axios.post('follow.php', formData).then(response => {
-            console.log(response);
-            if (response.data==1) {
-                //set follow state
-                console.log("following");
-            } else {
-                //set unfollow state
-                console.log("unfollow");
-            }
+            return response.data;
         });
     }
+
+    function toggleFollowButton(button, follow){
+        if(follow){
+            button.setAttribute("class","follow-button btn-sm btn btn-outline-primary");
+            button.innerHtml = '<i class="bi bi-plus-circle"></i> Follow';
+        } else {
+            button.setAttribute("class","follow-button btn-sm btn btn-outline-secondary");
+            button.innerHtml = '<i class="bi bi-x-circle"></i> Unfollow';
+        }
+    }
     
-    //COMMENTS
-
-    //AXIOS EXAMPLE
-    /*axios.get('api-login.php').then(response => {
-        console.log(response);
-        if (response.data["logineseguito"]) {
-            // Utente loggato
-            visualizzaArticoli(response.data["articoliautore"]);
-        } else {
-            // Utente NON loggato
-            visualizzaLoginForm();
-        }
-    });
-
-    axios.post('api-login.php', formData).then(response => {
-        console.log(response);
-        if (response.data["logineseguito"]) {
-            visualizzaArticoli(response.data["articoliautore"]);
-        } else {
-            document.querySelector("form > p").innerText = response.data["errorelogin"];
-        }
-    });*/
-
     //UI TOGGLE
 
     if(input!=null)
