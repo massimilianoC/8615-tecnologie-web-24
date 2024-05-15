@@ -3,11 +3,63 @@ document.addEventListener('DOMContentLoaded', function() {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     const input = document.querySelector("input.upload.post.media.button");
     const preview = document.querySelector("li.post-element.preview.input.media div");
-    if(input!=null)
-        input.addEventListener("change", updateImageDisplay);
-
     const showCommentButtons = document.querySelectorAll(".show-comment.button");
     const addCommentButtons = document.querySelectorAll(".add-comment.button");
+    const followButtons= document.querySelectorAll("button.follow-button");
+
+    //AXIOS
+    //NOTIFICATIONS
+    followButtons.forEach(button => {
+        button.addEventListener("mousedown", function (){
+            //get form data
+            let formaData;
+            formData["idUser"] = "1";
+            formData["idFollower"] = "2";
+            formData["action"] = "0";
+            followAction(formData);
+        });
+    });
+
+    function followAction(formData){
+        axios.post('follow.php', formData).then(response => {
+            console.log(response);
+            if (response.data["result"]) {
+                //set follow state
+                console.log("following");
+            } else {
+                //set unfollow state
+                console.log("unfollow");
+            }
+        });
+    }
+    
+    //COMMENTS
+
+    //AXIOS EXAMPLE
+    /*axios.get('api-login.php').then(response => {
+        console.log(response);
+        if (response.data["logineseguito"]) {
+            // Utente loggato
+            visualizzaArticoli(response.data["articoliautore"]);
+        } else {
+            // Utente NON loggato
+            visualizzaLoginForm();
+        }
+    });
+
+    axios.post('api-login.php', formData).then(response => {
+        console.log(response);
+        if (response.data["logineseguito"]) {
+            visualizzaArticoli(response.data["articoliautore"]);
+        } else {
+            document.querySelector("form > p").innerText = response.data["errorelogin"];
+        }
+    });*/
+
+    //UI TOGGLE
+
+    if(input!=null)
+        input.addEventListener("change", updateImageDisplay);
     
     showCommentButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
@@ -50,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let form = document.querySelector("#add-comment-form-"+postId);
         form.setAttribute("class","post comment-form");
     }
+
+    //PREVIEW UPLOAD IMAGE
 
     function updateImageDisplay() {
         while (preview.firstChild) {

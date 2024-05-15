@@ -13,11 +13,11 @@
                     <?php foreach($template_data["following"] as $followed): ?>
                         <?php if($utente["idUSER"]==$followed["idUSER"]) $amIFollowing = 1 ?>
                     <?php endforeach; ?>
-                        <form id="follow-<?php echo $_SESSION['user']['idUSER'] ?>-<?php echo $utente["idUSER"]  ?> " action="follow.php" method="POST">
+                        <form id="follow-<?php echo $_SESSION['user']['idUSER'] ?>-<?php echo $utente["idUSER"]  ?> " action="#" method="POST">
                             <input class="hidden" type="number" name="fkFollower" value=<?php echo $_SESSION['user']['idUSER'] ?> />
                             <input class="hidden" type="number" name="fkFollowed" value=<?php echo $utente["idUSER"]  ?> />
                             <input class="hidden" type="number" name="doFollow" value=<?php if($amIFollowing==1) echo 0; else echo 1 ?>  />
-                            <button class="btn-sm btn btn-outline-<?php if($amIFollowing==1) echo 'secondary'; else echo 'primary' ?>"  type="submit">
+                            <button id="follow-<?php echo $utente["idUSER"]; ?>" class="follow-button btn-sm btn btn-outline-<?php if($amIFollowing==1) echo 'secondary'; else echo 'primary' ?>"  type="submit">
                                 <?php if($amIFollowing==1) echo '<i class="bi bi-x-circle"></i> Unfollow'; else echo '<i class="bi bi-plus-circle"></i> Follow' ?>
                             </button>
                         </form>
