@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener("mousedown", function (){
             let buttonId = button.getAttribute("id")
             const formData = new FormData();
-            formData.append('fkFollower', document.querySelector("input.fkFollower-"+buttonId).value);
-            formData.append('fkFollowed',document.querySelector("input.fkFollowed-"+buttonId).value);
-            formData.append('doFollow', document.querySelector("input.doFollow-"+buttonId).value);
+            formData.append('fkFollower', document.querySelector("input#fkFollower-"+buttonId).value);
+            formData.append('fkFollowed',document.querySelector("input#fkFollowed-"+buttonId).value);
+            formData.append('doFollow', document.querySelector("input#doFollow-"+buttonId).value);
             followAction(formData);
         });
     });
