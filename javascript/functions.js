@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(formData);
         axios.post('follow.php', formData).then(response => {
             console.log(response);
-            if (response.data["doFollow"]==1) {
+            if (response.data==1) {
                 //set follow state
                 console.log("following");
             } else {
