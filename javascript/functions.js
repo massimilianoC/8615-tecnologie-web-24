@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let buttonId = button.getAttribute("id");
         let toggle = document.querySelector("input#doAction-"+buttonId)
         if(doFollow==0){
-            button.setAttribute("class","follow-button btn-sm btn btn-outline-primary");
+            button.setAttribute("class","follow-button btn-sm btn btn-primary");
             button.innerHTML = '<i class="bi bi-plus-circle"></i> Follow';
             toggle.setAttribute("value",1);
         } else {
