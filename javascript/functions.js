@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //NOTIFICATIONS
     followButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
-            console.log(button);
             let buttonId = button.getAttribute("id");
             const formData = new FormData();
             formData.append('fkFollower', document.querySelector("input#fkFollower-"+buttonId).value);
@@ -22,19 +21,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function followAction(formData){
-        console.log(formData);
         axios.post('follow.php', formData).then(response => {
+            console.log(response.data);
             return response.data;
         });
     }
 
     function toggleFollowButton(button, follow){
-        if(follow){
+        console.log(follow);
+        if(follow==1){
             button.setAttribute("class","follow-button btn-sm btn btn-outline-primary");
-            button.innerHtml = '<i class="bi bi-plus-circle"></i> Follow';
+            button.innerHTML = '<i class="bi bi-plus-circle"></i> Follow';
         } else {
             button.setAttribute("class","follow-button btn-sm btn btn-outline-secondary");
-            button.innerHtml = '<i class="bi bi-x-circle"></i> Unfollow';
+            button.innerHTML = '<i class="bi bi-x-circle"></i> Unfollow';
         }
     }
     
