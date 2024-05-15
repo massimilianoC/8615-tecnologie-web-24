@@ -226,11 +226,11 @@ class DatabaseHelper{
 
     public function updateNotification( $dataVisualizzazione, $dataArchiviazione, $read, $idNOTIFICATION){
         if($dataArchiviazione==0){
-            $query = "UPDATE notifications SET dataVisualizzazione = ?,  emailSent = ?, read = ? WHERE idNOTIFICATION = ?";
+            $query = "UPDATE notifications SET dataVisualizzazione = ?,  emailSent = ?, 'read' = ? WHERE idNOTIFICATION = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('siii',$dataVisualizzazione, $read, $idNOTIFICATION);
         } else {
-            $query = "UPDATE notifications SET dataVisualizzazione = ?, dataArchiviazione = ?, emailSent = ?, read = ? WHERE idNOTIFICATION = ?";
+            $query = "UPDATE notifications SET dataVisualizzazione = ?, dataArchiviazione = ?, emailSent = ?, 'read' = ? WHERE idNOTIFICATION = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('ssiii',$dataVisualizzazione, $dataArchiviazione, $emailSent, $read, $idNOTIFICATION);
         }
