@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('fkFollower', document.querySelector("input#fkFollower-"+buttonId).value);
             formData.append('fkFollowed',document.querySelector("input#fkFollowed-"+buttonId).value);
             formData.append('doFollow', document.querySelector("input#doAction-"+buttonId).value);
-            toggleFollowButton(followAction(formData));
+            toggleFollowButton(button,followAction(formData));
         });
     });
 
