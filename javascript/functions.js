@@ -29,12 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleFollowButton(button, follow){
         console.log(follow);
+        let buttonId = button.getAttribute("id");
+        let toggle = document.querySelector("input#doAction-"+buttonId)
         if(follow==1){
             button.setAttribute("class","follow-button btn-sm btn btn-outline-primary");
             button.innerHTML = '<i class="bi bi-plus-circle"></i> Follow';
+            toggle.setAttribute("value",0);
         } else {
             button.setAttribute("class","follow-button btn-sm btn btn-outline-secondary");
             button.innerHTML = '<i class="bi bi-x-circle"></i> Unfollow';
+            toggle.setAttribute("value",1);
         }
     }
     
