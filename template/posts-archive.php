@@ -76,7 +76,9 @@
     <?php endforeach; ?>
 <?php else: ?>
     <?php if(isset($template_data["userProfile"])) : ?>
-        <li><span><i><span class="user name"><?php echo $template_data["userProfile"]["nome"]." ".$template_data["userProfile"]["cognome"]; ?></span></i> non ha ancora pubblicato alcun post.</span></li>
+        <li><span><em><span class="user name"><?php echo $template_data["userProfile"]["nome"]." ".$template_data["userProfile"]["cognome"]; ?></span></em> non ha ancora pubblicato alcun post.</span></li>
+    <?php elseif(count($template_data["posts"])==0) : ?>
+        <li><span><em>Inizia a <a href="index.php?page=users">seguire un Utente</a> oppure pubblica il tuo primo post.</em></li>
     <?php endif; ?>  
 <?php endif; ?>  
 </ul>
