@@ -1,5 +1,5 @@
 <section class="form" id="login-form">
-<h2>Login</h2>
+<h1>Login</h1>
     <form action="login.php" method="POST">
         <ul class="list-group">
             <li class="list-group-item" >
