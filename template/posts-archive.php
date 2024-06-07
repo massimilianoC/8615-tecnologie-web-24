@@ -75,6 +75,6 @@
                 </li>     
     <?php endforeach; ?>
 <?php else: ?>
-    <li><span><i><span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></i> non ha ancora pubblicato alcun post.</span></li>
+    <li><span><i><span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></i> non ha ancora pubblicato alcun post.</span></li>
 <?php endif; ?>  
 </ul>
