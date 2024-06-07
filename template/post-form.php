@@ -1,4 +1,4 @@
-<form id="form-post" method="post" action="new-post.php" name="post-form" onsubmit="return validateForm()" enctype="multipart/form-data">
+<form id="form-post" method="post" action="new-post.php" name="post-form" enctype="multipart/form-data">
 <ul class="form post">
     <li class="post post-single-item shadow">
         <ul class="collection posts detail">
@@ -7,7 +7,7 @@
                 <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
                 <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
             </li>
-            <li class="post-element input text"><textarea class="form-control" placeholder="A cosa stai pensando? ..." name="text" cols="45" rows="2"></textarea></li>
+            <li class="post-element input text"><textarea class="form-control" placeholder="A cosa stai pensando? ..." name="text" cols="45" rows="2" required ></textarea></li>
             <li class="post-element preview input media"><div class="post-element"></div></li>
             <li class="hidden form input"><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
             <li class="hidden form input"><input type="number" id="isComment" name="isComment" value=0 ></li>

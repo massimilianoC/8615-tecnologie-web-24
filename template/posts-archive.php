@@ -26,7 +26,7 @@
 <!-- COMMENTS SECTION -->
                         <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
                         <h6>Commenti</h6>
-                        <form name="post-form" class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" onsubmit="return validateForm()" enctype="multipart/form-data">
+                        <form name="post-form" class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
                             <ul class="collection posts">
 <!-- ADD COMMENT FORM -->                                
                             <li class="post comment-form hidden" id="add-comment-form-<?php echo $post["idPOST"]; ?>">
@@ -37,7 +37,7 @@
                                             <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
                                             <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
                                         </li>
-                                        <li class="post-element input text"><textarea placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="2"></textarea></li>
+                                        <li class="post-element input text"><textarea required placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="2"></textarea></li>
                                         <li class="hidden form input"><input type="text" id="idUSER<?php echo $post["idPOST"]; ?>" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
                                         <li class="hidden form input"><input type="number" id="isComment<?php echo $post["idPOST"]; ?>" name="isComment" value=1 ></li>
                                         <li class="hidden form input"><input type="number" id="fkParent<?php echo $post["idPOST"]; ?>" name="fkParent" value=<?php echo $post["idPOST"]; ?> ></li>

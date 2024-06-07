@@ -111,15 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
         form.setAttribute("class","post comment-form");
     }
 
-    function validateForm() {
-        console.log(document.forms["post-form"]);
-        var x = document.forms["post-form"]["text"].value;
-        if (x == "") {
-          alert("Il testo inserito è vuoto!");
-          return false;
-        }
-      }
-
     //PREVIEW UPLOAD IMAGE
 
     function updateImageDisplay() {
