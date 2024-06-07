@@ -71,15 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     showCommentButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
-            toggleComments(button.getAttribute("postid"))
+            toggleComments(button.getAttribute("name"))
         });
     });
 
     addCommentButtons.forEach(button => {
         button.addEventListener("mousedown", 
             function (){
-                showComments(button.getAttribute("postid"))
-                showAddCommentForm(button.getAttribute("postid"))
+                showComments(button.getAttribute("name"))
+                showAddCommentForm(button.getAttribute("name"))
             });
     });
 

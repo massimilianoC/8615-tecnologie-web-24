@@ -8,19 +8,19 @@
                     <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
-                        <a href="index.php?page=userprofile&iduser=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
+                        <a href="index.php?page=userprofile&iduser=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt=""></span>
                         <span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
                         </li>
                         <li class="post-element text"><?php echo $post["text"]; ?></li>
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media">
                                 <img class="post-element image source" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" >
-                                <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" alt="" />
+                                <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" ></div>
                             </li>
                         <?php endif; ?>
                         <li class="post-element function buttons">
-                            <button id="show-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-secondary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <span class="badge rounded-pill text-bg-primary"><?php if(count($postComments)>0){ echo count($postComments);} ?></span></button>
-                            <button id="add-comments-<?php echo $post["idPOST"]; ?>" postid=<?php echo $post["idPOST"]; ?> class="btn btn-primary add-comment button">Commenta...</button></li>
+                            <button id="show-comments-<?php echo $post["idPOST"]; ?>" name=<?php echo $post["idPOST"]; ?> class="btn btn-secondary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <span class="badge rounded-pill text-bg-primary"><?php if(count($postComments)>0){ echo count($postComments);} ?></span></button>
+                            <button id="add-comments-<?php echo $post["idPOST"]; ?>" name=<?php echo $post["idPOST"]; ?> class="btn btn-primary add-comment button">Commenta...</button></li>
                         <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="post del: <?php echo $post["dataInserimento"]; ?>"></i></li>
                     </ul>
 <!-- COMMENTS SECTION -->
@@ -39,7 +39,7 @@
                                         <li class="hidden form input"><input type="text" id="idUSER<?php echo $post["idPOST"]; ?>" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
                                         <li class="hidden form input"><input type="number" id="isComment<?php echo $post["idPOST"]; ?>" name="isComment" value=1 ></li>
                                         <li class="hidden form input"><input type="number" id="fkParent<?php echo $post["idPOST"]; ?>" name="fkParent" value=<?php echo $post["idPOST"]; ?> ></li>
-                                        <li class="post-element save function buttons"><input type="submit" value="Pubblica" class="btn btn-primary save post button"></button></li>
+                                        <li class="post-element save function buttons"><input type="submit" value="Pubblica" class="btn btn-primary save post button"></li>
                                     </form>
                                 </ul>
                             </li>
