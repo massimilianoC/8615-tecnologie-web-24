@@ -12,7 +12,7 @@
             </li>
             <li class="list-group-item">
                 <label for="submit" class="form-label hidden">Accedi</label>
-                <button type="submit" class="btn btn-primary float-end" name="submit">Accedi</button>
+                <button type="submit" class="btn btn-primary float-end"  id="submit" name="submit">Accedi</button>
             </li>
         </ul>
     </form>
@@ -24,7 +24,7 @@
     <li class="list-group-item" >
         <form action="index.php?page=register">
             <label for="register" class="form-label">Non sei ancora iscritto/a?</label>
-            <button class="btn btn-secondary" name="register">Registrati</button>
+            <button class="btn btn-secondary" id="register" name="register">Registrati</button>
         </form>
     </li>
 </ul>
