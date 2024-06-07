@@ -26,7 +26,7 @@
 <!-- COMMENTS SECTION -->
                         <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
                         <h6>Commenti</h6>
-                        <form class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
+                        <form name="post-form" class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" onsubmit="return validateForm()" enctype="multipart/form-data">
                             <ul class="collection posts">
 <!-- ADD COMMENT FORM -->                                
                             <li class="post comment-form hidden" id="add-comment-form-<?php echo $post["idPOST"]; ?>">
