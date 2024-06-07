@@ -10,7 +10,7 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     if(count($dbh->getUserByEmail($email))==0){
-        $errors = checkPassword($pwd,"");
+        //$errors = checkPassword($pwd,"");
         if($errors==""){
             $pepper = getPepper();
             $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
