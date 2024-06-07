@@ -22,7 +22,8 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
             header("Location: index.php?page=register");
         }
     } else {
-    $_SESSION["errorelogin"] = "Email già registrata!";
+        $_SESSION["errorelogin"] = "Email già registrata!";
+        header("Location: index.php?page=register");
     }
 }
 
