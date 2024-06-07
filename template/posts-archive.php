@@ -15,7 +15,7 @@
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media">
                                 <img class="post-element image source" src="<?php echo urlencode(UPLOAD_DIR.$post["mediaUrl"]); ?>" alt="" >
-                                <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" ></div>
+                                <div class="post-element image-background" style="background-image: url('<?php echo urlencode(UPLOAD_DIR.$post["mediaUrl"]); ?>')" ></div>
                             </li>
                         <?php endif; ?>
                         <li class="post-element function buttons">
