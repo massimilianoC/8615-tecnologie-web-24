@@ -18,11 +18,11 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
             $dbh->insertUser($nome, $cognome,$email, $pwd_hashed);
             header("Location: index.php?page=login");
         } else {
-            $template_data["erroreRegistrazione"] = $errors;
-            header("Location: index.php?page=register&errors=".$errors);
+            $template_data["errorelogin"] = $errors;
+            header("Location: index.php?page=register");
         }
     } else {
-    $template_data["erroreRegistrazione"] = "Email già registrata!";
+    $template_data["errorelogin"] = "Email già registrata!";
     }
 }
 
