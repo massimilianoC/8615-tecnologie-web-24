@@ -144,3 +144,11 @@ li.text {
 .identity .user.name {
     text-align: center;
 }
+
+footer .footer h3{
+    font-size: small;
+}
+
+section.form input {
+    background-color: beige;
+}
