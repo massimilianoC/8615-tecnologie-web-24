@@ -37,15 +37,15 @@ function registerLoggedUser($user){
 function checkPassword($pwd, $errors) {
 
     if (strlen($pwd) < 8) {
-        $errors .= "Password too short!</br>";
+        $errors .= "Password troppo corta!</br>";
     }
 
     if (!preg_match("#[0-9]+#", $pwd)) {
-        $errors .= "Password must include at least one number!</br>";
+        $errors .= "Password deve includere almeno un numero!</br>";
     }
 
     if (!preg_match("#[a-zA-Z]+#", $pwd)) {
-        $errors .= "Password must include at least one letter!</br>";
+        $errors .= "Password deve includere almeno una lettera!</br>";
     }     
 
     return $errors ;
