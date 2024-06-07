@@ -1,5 +1,6 @@
 <ul class="collection posts">
 <!-- POSTS COLLECTION --> 
+<?php if(count($template_data["posts"])>0) : ?>
     <?php foreach($template_data["posts"] as $post) : ?>
         <?php $postOwner = $dbh->getUserByUserId($post["fkUser"]);?>
         <?php $postComments = $dbh->getCommentsByPostId($post["idPOST"]);?>
@@ -73,4 +74,7 @@
                         </section>       
                 </li>     
     <?php endforeach; ?>
+<?php else: ?>
+    <li><span><i><span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></i> non ha ancora pubblicato alcun post.</span></li>
+<?php endif; ?>  
 </ul>
