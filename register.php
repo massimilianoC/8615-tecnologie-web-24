@@ -16,11 +16,10 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
             $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
             $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
             $dbh->insertUser($nome, $cognome,$email, $pwd_hashed);
-            $template_data["titolo"] = "Login";
-            $template_data["nome"] = "login-form.php";
             header("Location: index.php?page=login");
         } else {
             $template_data["erroreRegistrazione"] = $errors;
+            header("Location: index.php?page=register");
         }
     } else {
     $template_data["erroreRegistrazione"] = "Email già registrata!";
