@@ -3,16 +3,16 @@
         <h2>Registration</h2>
         <ul class="list-group">
             <li class="list-group-item">
-                <label class="form-label" for="nome">Nome:</label><input class="form-control"  type="text" id="nome" name="nome" />
+                <label class="form-label" for="nome">Nome:</label><input class="form-control"  type="text" id="nome" name="nome" >
             </li>
             <li class="list-group-item">
-                <label class="form-label"  for="cognome">Cognome:</label><input class="form-control" type="text" id="cognome" name="cognome" />
+                <label class="form-label"  for="cognome">Cognome:</label><input class="form-control" type="text" id="cognome" name="cognome" >
             </li>
             <li class="list-group-item">
-                <label class="form-label"  for="email">Email:</label><input class="form-control" type="text" id="email" name="email" aria-describedby="emailHelp" />
+                <label class="form-label"  for="email">Email:</label><input class="form-control" type="text" id="email" name="email" aria-describedby="email" >
             </li>
             <li class="list-group-item">
-                <label class="form-label"  for="password">Password:</label><input class="form-control"  type="password" id="password" name="password" />
+                <label class="form-label"  for="password">Password:</label><input class="form-control"  type="password" id="password" name="password" >
             </li>
             <li class="list-group-item">
                 <button  type="submit" name="submit" class="btn btn-primary float-end">Registrati</button>
