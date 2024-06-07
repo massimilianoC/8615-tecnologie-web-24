@@ -22,11 +22,11 @@
                         <li class="post-element function buttons">
                             <button id="show-comments-<?php echo $post["idPOST"]; ?>" name=<?php echo $post["idPOST"]; ?> class="btn btn-secondary show-comment button toggle <?php if(count($postComments)==0){ echo " hidden";} ?>">Commenti <span class="badge rounded-pill text-bg-primary"><?php if(count($postComments)>0){ echo count($postComments);} ?></span></button>
                             <button id="add-comments-<?php echo $post["idPOST"]; ?>" name=<?php echo $post["idPOST"]; ?> class="btn btn-primary add-comment button">Commenta...</button></li>
-                        <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="post del: <?php echo $post["dataInserimento"]; ?>"></i></li>
+                        <li class="post-element timestamp"><em class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="post del: <?php echo $post["dataInserimento"]; ?>"></em></li>
                     </ul>
 <!-- COMMENTS SECTION -->
                         <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
-                        <h6>Commenti</h6>
+                        <h3>Commenti</h3>
                         <form name="post-form" class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
                             <ul class="collection posts">
 <!-- ADD COMMENT FORM -->                                
@@ -38,10 +38,10 @@
                                             <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
                                             <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
                                         </li>
-                                        <li class="post-element input text"><textarea required placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="2"></textarea></li>
-                                        <li class="hidden form input"><input type="text" id="idUSER<?php echo $post["idPOST"]; ?>" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
-                                        <li class="hidden form input"><input type="number" id="isComment<?php echo $post["idPOST"]; ?>" name="isComment" value=1 ></li>
-                                        <li class="hidden form input"><input type="number" id="fkParent<?php echo $post["idPOST"]; ?>" name="fkParent" value=<?php echo $post["idPOST"]; ?> ></li>
+                                        <li class="post-element input text"><label for="text<?php echo $post["idPOST"]; ?>" class="form-label hidden">Text</label><textarea id="text<?php echo $post["idPOST"]; ?>" required placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="2"></textarea></li>
+                                        <li class="hidden form input"><label for="idUSER<?php echo $post["idPOST"]; ?>" class="form-label hidden">User</label><input type="text" id="idUSER<?php echo $post["idPOST"]; ?>" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
+                                        <li class="hidden form input"><label for="isComment<?php echo $post["idPOST"]; ?>" class="form-label hidden">Comment</label><input type="number" id="isComment<?php echo $post["idPOST"]; ?>" name="isComment" value=1 ></li>
+                                        <li class="hidden form input"><label for="fkParent<?php echo $post["idPOST"]; ?>" class="form-label hidden">Parent</label><input type="number" id="fkParent<?php echo $post["idPOST"]; ?>" name="fkParent" value=<?php echo $post["idPOST"]; ?> ></li>
                                         <li class="post-element save function buttons"><input type="submit" value="Pubblica" class="btn btn-primary save post button"></li>
                                    
                                 </ul>
@@ -64,7 +64,7 @@
                                                         <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>')"></div>
                                                     </li>
                                                 <?php endif; ?>
-                                                <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="commento del: <?php echo $comment["dataInserimento"]; ?>"></i></li>
+                                                <li class="post-element timestamp"><em class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="commento del: <?php echo $comment["dataInserimento"]; ?>"></em></li>
                                             </ul>
                                         </li>       
                             <?php endforeach; ?>
