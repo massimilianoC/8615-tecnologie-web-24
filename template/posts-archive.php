@@ -75,6 +75,8 @@
                 </li>     
     <?php endforeach; ?>
 <?php else: ?>
-    <li><span><i><span class="user name"><?php echo $template_data["userProfile"]["nome"]." ".$template_data["userProfile"]["cognome"]; ?></span></i> non ha ancora pubblicato alcun post.</span></li>
+    <?php if(isset($template_data["userProfile"])) : ?>
+        <li><span><i><span class="user name"><?php echo $template_data["userProfile"]["nome"]." ".$template_data["userProfile"]["cognome"]; ?></span></i> non ha ancora pubblicato alcun post.</span></li>
+    <?php endif; ?>  
 <?php endif; ?>  
 </ul>
