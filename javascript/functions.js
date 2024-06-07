@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function validateForm() {
+        console.log(document.forms["post-form"]);
         var x = document.forms["post-form"]["text"].value;
         if (x == "") {
           alert("Il testo inserito è vuoto!");
