@@ -18,7 +18,7 @@ if(isUserLoggedIn()){
                 break;
         }
     } else{
-        require('home-page.php');
+        require('home.php');
     }
 }else{
     if(isset($_GET["page"])){
