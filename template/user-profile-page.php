@@ -1,5 +1,5 @@
 <section class="user-profile">
-    <h6>Profilo</h6>
+    <h2>Profilo</h2>
     <section class="identity">
             <?php if($template_data["userProfile"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$template_data["userProfile"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
             <div class="user image main-profile d-flex justify-content-center"><img class="user main-profile" src="<?php echo $userImg; ?>" alt=""></div>
@@ -10,7 +10,7 @@
     ?>
     <hr>
     <section class="posts collection">
-        <h6>Pubblicazioni</h6>
+        <h3>Pubblicazioni</h3>
         <?php
             if($_SESSION["user"]["idUSER"]==$template_data["userProfile"]["idUSER"])
             {
