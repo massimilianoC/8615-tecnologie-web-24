@@ -8,14 +8,14 @@
                     <ul class="collection posts detail">
                         <?php if($postOwner["imageUrl"]!="") $userImg = UPLOAD_DIR.$postOwner["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                         <li class="post-element header">
-                        <a href="index.php?page=userprofile&iduser=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo urlencode($userImg); ?>" alt=""></span>
+                        <a href="index.php?page=userprofile&iduser=<?php echo $postOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt=""></span>
                         <span class="user name"><?php echo $postOwner["nome"]." ".$postOwner["cognome"]; ?></span></a>
                         </li>
                         <li class="post-element text"><?php echo $post["text"]; ?></li>
                         <?php if($post["mediaUrl"]!="") : ?>
                             <li class="post-element media">
-                                <img class="post-element image source" src="<?php echo urlencode(UPLOAD_DIR.$post["mediaUrl"]); ?>" alt="" >
-                                <div class="post-element image-background" style="background-image: url('<?php echo urlencode(UPLOAD_DIR.$post["mediaUrl"]); ?>')" ></div>
+                                <img class="post-element image source" src="<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>" alt="" >
+                                <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$post["mediaUrl"]; ?>')" ></div>
                             </li>
                         <?php endif; ?>
                         <li class="post-element function buttons">
@@ -33,7 +33,7 @@
                                     <form class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
                                         <?php if($_SESSION["user"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$_SESSION["user"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                                         <li class="post-element header">
-                                            <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo urlencode($userImg); ?>" alt="" ></span>
+                                            <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
                                             <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
                                         </li>
                                         <li class="post-element input text"><textarea placeholder="Inserisci il tuo commento ..." name="text" cols="40" rows="2"></textarea></li>
@@ -52,14 +52,14 @@
                                             <ul class="collection posts detail">
                                             <?php if($commentOwner["imageUrl"]!="") $cmmImg = UPLOAD_DIR.$commentOwner["imageUrl"]; else $cmmImg=DEFAULT_IMG_PROFILE ?>
                                                 <li class="post-element header">
-                                                    <a href="index.php?page=userprofile&iduser=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo urlencode($cmmImg); ?>" alt="" ></span>
+                                                    <a href="index.php?page=userprofile&iduser=<?php echo $commentOwner["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $cmmImg; ?>" alt="" ></span>
                                                     <span class="user name"><?php echo $commentOwner["nome"]." ".$commentOwner["cognome"]; ?></span></a>
                                                 </li>
                                                 <li class="post-element text"><?php echo $comment["text"]; ?></li>
                                                 <?php if($comment["mediaUrl"]!="") : ?>
                                                     <li class="post-element media">
-                                                        <img class="post-element image source" src="<?php echo urlencode(UPLOAD_DIR.$comment["mediaUrl"]); ?>" alt="">
-                                                        <div class="post-element image-background" style="background-image: url('<?php echo urlencode(UPLOAD_DIR.$comment["mediaUrl"]); ?>')"></div>
+                                                        <img class="post-element image source" src="<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>" alt="">
+                                                        <div class="post-element image-background" style="background-image: url('<?php echo UPLOAD_DIR.$comment["mediaUrl"]; ?>')"></div>
                                                     </li>
                                                 <?php endif; ?>
                                                 <li class="post-element timestamp"><i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-title="commento del: <?php echo $comment["dataInserimento"]; ?>"></i></li>
