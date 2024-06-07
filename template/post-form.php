@@ -7,11 +7,11 @@
                 <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
                 <span class="user name"><?php echo $_SESSION["user"]["nome"]." ".$_SESSION["user"]["cognome"]; ?></span></a>
             </li>
-            <li class="post-element input text"><textarea class="form-control" placeholder="A cosa stai pensando? ..." name="text" cols="45" rows="2" required ></textarea></li>
+            <li class="post-element input text"><label for="text" class="form-label hidden">Text</label><textarea id="text" class="form-control" placeholder="A cosa stai pensando? ..." name="text" cols="45" rows="2" required ></textarea></li>
             <li class="post-element preview input media"><div class="post-element"></div></li>
-            <li class="hidden form input"><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
-            <li class="hidden form input"><input type="number" id="isComment" name="isComment" value=0 ></li>
-            <li class="hidden form input"><input type="number" id="fkParent" name="fkParent" value=0 ></li>
+            <li class="hidden form input"><label for="idUSER" class="form-label hidden">User</label><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
+            <li class="hidden form input"><label for="isComment" class="form-label hidden">Comment</label><input type="number" id="isComment" name="isComment" value=0 ></li>
+            <li class="hidden form input"><label for="fkParent" class="form-label hidden">Parent</label><input type="number" id="fkParent" name="fkParent" value=0 ></li>
             <li class="post-element input function buttons"><input class="form-control upload post media button" type="file" id="mediaUpload" name="media" accept="image/png, image/jpeg, image/jpg, video/mp4" capture="environment" ></li>
             <li class="post-element save function buttons"><button class="btn btn-primary save post button">Pubblica</button></li>
         </ul>
