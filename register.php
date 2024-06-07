@@ -16,6 +16,7 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
             $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
             $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
             $dbh->insertUser($nome, $cognome,$email, $pwd_hashed);
+            $_SESSION["alert"] = "Utente registrato con successo! Ora puoi accedere.";
             header("Location: index.php?page=login");
         } else {
             $_SESSION["alert"] = $errors;
