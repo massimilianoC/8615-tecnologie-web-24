@@ -17,7 +17,7 @@
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("userprofile") ?>" href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"] ?>"><i class="bi bi-person-circle"></i> <span>Profilo</span></a></li>
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("users") ?>" href="index.php?page=users"><i class="bi bi-people"></i> <span>Utenti</span></a></li>
         </ul>
-        <div class="nav-item d-flex justify-content-lg-end"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=logout"><button type="button" class="btn btn-danger"><i class="bi bi-power"></i> Log Out</button></a></div>
+        <div class="nav-item d-flex justify-content-lg-end"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=logout"><div type="button" class="btn btn-danger"><i class="bi bi-power"></i> Log Out</div></a></div>
         <?php else: ?>
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=login"><i class="bi bi-key"></i> <span>Log In</span></a></li>
         <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("register") ?>" href="index.php?page=register"><i class="bi bi-door-open"></i> <span>Register</span></a></li>
