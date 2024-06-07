@@ -2,7 +2,7 @@
     <h3>Amici</h3>
 <div class="dropdown flex-fill d-flex justify-content-center">
   <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" <?php if(count($template_data["followers"])==0) echo 'disabled' ?>>
-  <em class="bi bi-people-fill"></> Followers <span class="badge rounded-pill text-bg-secondary"><?php echo count($template_data["followers"]) ?></span>
+  <em class="bi bi-people-fill"></em> Followers <span class="badge rounded-pill text-bg-secondary"><?php echo count($template_data["followers"]) ?></span>
   </button>
   <ul class="dropdown-menu">
         <?php foreach($template_data["followers"] as $utente): ?>
