@@ -14,11 +14,11 @@
                         <?php if($utente["idUSER"]==$followed["idUSER"]) $amIFollowing = 1 ?>
                     <?php endforeach; ?>
                         <form id="form-follow-<?php echo $utente["idUSER"]?>" action="#" method="POST">
-                            <label for="fkFollower" class="form-label hidden">Follower</label>
+                            <label for="fkFollower-<?php echo $utente["idUSER"]?>" class="form-label hidden">Follower</label>
                             <input id="fkFollower-<?php echo $utente["idUSER"]?>" class="hidden" type="number" name="fkFollower" value=<?php echo $_SESSION['user']['idUSER'] ?>>
-                            <label for="fkFollowed" class="form-label hidden">Followed</label>
+                            <label for="fkFollowed-<?php echo $utente["idUSER"]?>" class="form-label hidden">Followed</label>
                             <input id="fkFollowed-<?php echo $utente["idUSER"]?>" class="hidden" type="number" name="fkFollowed" value=<?php echo $utente["idUSER"]  ?> >
-                            <label for="doFollow" class="form-label hidden">Action</label>
+                            <label for="doAction-<?php echo $utente["idUSER"]?>" class="form-label hidden">Action</label>
                             <input id="doAction-<?php echo $utente["idUSER"]?>" class="hidden" type="number" name="doFollow" value=<?php if($amIFollowing==1) echo 0; else echo 1 ?>  >
                             <button id="user<?php echo $utente["idUSER"]?>" class="follow-button btn-sm btn btn-<?php if($amIFollowing==1) echo 'outline-secondary'; else echo 'primary' ?>"  type="button">
                                 <?php if($amIFollowing==1) echo '<em class="bi bi-x-circle"></em> Unfollow'; else echo '<em class="bi bi-plus-circle"></em> Follow' ?>
