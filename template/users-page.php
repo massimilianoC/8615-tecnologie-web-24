@@ -5,7 +5,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center user list item">
                 <a href="index.php?page=userprofile&iduser=<?php echo $utente["idUSER"]; ?>">
                 <?php if($utente["imageUrl"]!="") $userImg = UPLOAD_DIR.$utente["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
-                <span><img class="user profile" src="<?php echo $userImg; ?>" alt="" /></span>
+                <span><img class="user profile" src="<?php echo urlencode($userImg); ?>" alt="" /></span>
                 <?php echo $utente["nome"]; ?> <?php echo $utente["cognome"]; ?></a>
                 <?php $mySelf = $_SESSION['user']['idUSER'] ==  $utente["idUSER"] ? 1:0; ?>
                 <?php if($mySelf ==0) : ?>
