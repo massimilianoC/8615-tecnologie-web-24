@@ -12,11 +12,9 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     {
         $media = $_FILES['media'];
         $imageName = basename($media["name"]);
-        var_dump($imageName);
         $path = date("Y/m/d")."/".$idUSER."/";
         $fullPath = $path.$imageName;
         $result = uploadImage($path, $media);
-        var_dump($result);
     } 
 //SAVE to DB
     $iid = $dbh->insertPost($fullPath,$text,$isComment,$fkParent,$idUSER);
@@ -27,3 +25,4 @@ if(isset($_POST["text"]) && isset($_POST["idUSER"]) && isset($_POST["isComment"]
     }
 }
 
+require 'template/base-layout.php';
