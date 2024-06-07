@@ -3,6 +3,7 @@ require_once 'bootstrap.php';
 
 $template_data["titolo"] = "Register";
 $template_data["nome"] = "registration-form.php";
+$dest = "home";
 
 if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) && isset($_POST["cognome"])){
         $pwd = $_POST['password'];
@@ -23,8 +24,9 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nome"]) 
             }
          } else {
             $template_data["erroreRegistrazione"] = "Email già registrata!";
+            $dest = "register";
          }
 } 
 
-
+header("Location: index.php?page=".$dest);
 
