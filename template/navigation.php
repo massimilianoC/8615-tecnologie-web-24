@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="index.php?page=home"><em class="bi bi-chat-left-quote-fill"></em> Social Share</a>
     <?php if(isUserLoggedIn()) : ?>
       <button class="d-sm-block d-md-block d-lg-none d-xl-none btn btn-primary position-relative" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      <i class="bi bi-bell-fill"></i><span class="notification-count position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"><?php echo count($template_data["notifications"]);?></span>
+      <em class="bi bi-bell-fill"></em><span class="notification-count position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"><?php echo count($template_data["notifications"]);?></span>
       </button>
     <?php endif; ?>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,8 +19,8 @@
         </ul>
         <div class="nav-item d-flex justify-content-lg-end"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=logout"><div class="btn btn-danger"><i class="bi bi-power"></i> Log Out</div></a></div>
         <?php else: ?>
-        <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=login"><i class="bi bi-key"></i> <span>Log In</span></a></li>
-        <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("register") ?>" href="index.php?page=register"><i class="bi bi-door-open"></i> <span>Register</span></a></li>
+        <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("login") ?>" href="index.php?page=login"><em class="bi bi-key"></em> <span>Log In</span></a></li>
+        <li class="nav-item"><a aria-current="page" class="nav-link <?php isActive("register") ?>" href="index.php?page=register"><em class="bi bi-door-open"></em> <span>Register</span></a></li>
         </ul>
         <?php endif; ?>
     </div>
