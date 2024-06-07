@@ -24,7 +24,7 @@
     <li class="list-group-item" >
         <form action="index.php?page=register">
             <label for="register" class="form-label">Non sei ancora iscritto/a?</label>
-            <input class="btn btn-secondary" type="submit" id="register" name="register" value="Registrati">
+            <input class="btn btn-secondary" type="submit" id="register" name="Registrati" value="register">
         </form>
     </li>
 </ul>
