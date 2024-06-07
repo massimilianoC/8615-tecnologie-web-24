@@ -19,7 +19,7 @@
 </section>
 <hr>
 <section>
-<h1>Registrazione</h1>
+<h2>Registrazione</h2>
 <ul class="list-group">
     <li class="list-group-item" >
       <span>Non sei ancora iscritto/a? </span><a class="btn btn-secondary" href="index.php?page=register">Registrati</a>
