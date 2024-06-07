@@ -9,7 +9,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $login_result = $dbh->getUserByEmail($_POST["email"]);
 
     if(count($login_result)==0){
-        $template_data["errorelogin"] = "Errore! Controllare email o password!";
+        $_SESSION["errorelogin"] = "Errore! Controllare email o password!";
         require 'template/base-layout.php';
     }
     else{
@@ -23,7 +23,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             header('Location: index.php?page=home');
         }
         else {
-            $template_data["errorelogin"] = "Hai dimenticato la password?";
+            $_SESSION["errorelogin"] = "Hai dimenticato la password?";
             require 'template/base-layout.php';
         }
     }

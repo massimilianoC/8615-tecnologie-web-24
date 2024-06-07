@@ -13,7 +13,7 @@ function isUserLoggedIn(){
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
             // last request was more than 30 minutes ago
             killSession();
-            $template_data["errorelogin"] = "Sessione scaduta!";
+            $_SESSION["errorelogin"] = "Sessione scaduta!";
             return false;
         }
         return true;
