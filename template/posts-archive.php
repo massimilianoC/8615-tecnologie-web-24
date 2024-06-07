@@ -26,11 +26,12 @@
 <!-- COMMENTS SECTION -->
                         <section class="comments hidden" id="comment-section-<?php echo $post["idPOST"]; ?>">
                         <h6>Commenti</h6>
+                        <form class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
                             <ul class="collection posts">
 <!-- ADD COMMENT FORM -->                                
                             <li class="post comment-form hidden" id="add-comment-form-<?php echo $post["idPOST"]; ?>">
                                 <ul class="collection posts detail">
-                                    <form class="comment-post" id="comment-form-<?php echo $post["idPOST"]; ?>" method="post" action="new-post.php" enctype="multipart/form-data">
+                                  
                                         <?php if($_SESSION["user"]["imageUrl"]!="") $userImg = UPLOAD_DIR.$_SESSION["user"]["imageUrl"]; else  $userImg=DEFAULT_IMG_PROFILE ?>
                                         <li class="post-element header">
                                             <a href="index.php?page=userprofile&iduser=<?php echo $_SESSION["user"]["idUSER"]; ?>"><span><img class="user profile" src="<?php echo $userImg; ?>" alt="" ></span>
@@ -41,7 +42,7 @@
                                         <li class="hidden form input"><input type="number" id="isComment<?php echo $post["idPOST"]; ?>" name="isComment" value=1 ></li>
                                         <li class="hidden form input"><input type="number" id="fkParent<?php echo $post["idPOST"]; ?>" name="fkParent" value=<?php echo $post["idPOST"]; ?> ></li>
                                         <li class="post-element save function buttons"><input type="submit" value="Pubblica" class="btn btn-primary save post button"></li>
-                                    </form>
+                                   
                                 </ul>
                             </li>
 <!-- COMMENTS COLLECTION -->    
@@ -68,6 +69,7 @@
                             <?php endforeach; ?>
                             <?php endif; ?>  
                             </ul>
+                        </form>
                         </section>       
                 </li>     
     <?php endforeach; ?>
