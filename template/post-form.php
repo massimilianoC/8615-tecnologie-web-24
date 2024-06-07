@@ -12,7 +12,7 @@
             <li class="hidden form input"><label for="idUSER" class="form-label hidden">User</label><input type="text" id="idUSER" name="idUSER" value="<?php echo $_SESSION["user"]["idUSER"]; ?>" ></li>
             <li class="hidden form input"><label for="isComment" class="form-label hidden">Comment</label><input type="number" id="isComment" name="isComment" value=0 ></li>
             <li class="hidden form input"><label for="fkParent" class="form-label hidden">Parent</label><input type="number" id="fkParent" name="fkParent" value=0 ></li>
-            <li class="post-element input function buttons"><input class="form-control upload post media button" type="file" id="mediaUpload" name="media" accept="image/png, image/jpeg, image/jpg, video/mp4" capture="environment" ></li>
+            <li class="post-element input function buttons"><label for="mediaUpload" class="form-label hidden">File</label><input class="form-control upload post media button" type="file" id="mediaUpload" name="media" accept="image/png, image/jpeg, image/jpg, video/mp4" capture="environment" ></li>
             <li class="post-element save function buttons"><button class="btn btn-primary save post button">Pubblica</button></li>
         </ul>
     </li>
