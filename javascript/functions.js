@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //NOTIFICATIONS
     archiveNotificationButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
-            let buttonId = button.getAttribute("id");
+            let buttonId = button.getAttribute("id").replace("notification","");
             const formData = new FormData();
             formData.append('idNOTIFICATION', buttonId);
             archiveAction(formData);
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //FOLLOWERS
     followButtons.forEach(button => {
         button.addEventListener("mousedown", function (){
-            let buttonId = button.getAttribute("id");
+            let buttonId = button.getAttribute("id").replace("user","");
             const formData = new FormData();
             formData.append('fkFollower', document.querySelector("input#fkFollower-"+buttonId).value);
             formData.append('fkFollowed',document.querySelector("input#fkFollowed-"+buttonId).value);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function toggleFollowButton(button, doFollow){
-        let buttonId = button.getAttribute("id");
+        let buttonId = button.getAttribute("id").replace("user","");;
         let toggle = document.querySelector("input#doAction-"+buttonId)
         if(doFollow==0){
             button.setAttribute("class","follow-button btn-sm btn btn-primary");

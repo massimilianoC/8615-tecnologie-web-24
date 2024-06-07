@@ -24,7 +24,7 @@
                      ha commentato un <a href="index.php#post<?php echo $post['fkParent'] ?>?page=home"><?php if($parent["fkUser"]==$_SESSION["user"]['idUSER']) echo 'tuo post'; else echo 'post di '.$dbh->getUserByUserId($parent["fkUser"])['nome'] ?></a></span>
                   <?php endif; ?>
                 <?php endif; ?>
-                <button id="<?php echo $notification['idNOTIFICATION'] ?>" type="button" class="archive notification btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button id="notification<?php echo $notification['idNOTIFICATION'] ?>" type="button" class="archive notification btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </li>
           </ul>
         <?php endforeach; ?>
